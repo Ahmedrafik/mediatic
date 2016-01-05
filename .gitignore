@@ -1,0 +1,9 @@
+bootstrap/
+font-awesome/
+js/jquery.js
+
+# Eclipse
+target/
+.classpath
+.settings/
+.project

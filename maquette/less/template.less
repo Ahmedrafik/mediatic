@@ -1,0 +1,33 @@
+/***************************************************************
+"Interrupteurs" permettant de cacher les elements d'édition en vue et vice-versa
+***************************************************************/
+
+	body.consultation .only-view {display:block;}
+	body.consultation .only-edit {display:none;}
+	body.edition .only-view {display:none;}
+	body.edition .only-edit {display:block;}
+	
+/* style global */
+
+.adherent
+{
+	nav{
+		background-color:@colorAdherent;	
+	}
+	
+	h1,h2
+	{
+		color:@colorAdherent;	
+	}
+}
+
+.media
+{
+	nav{
+		background-color:@colorMedia;	
+	}
+	h1,h2
+	{
+		color:@colorMedia;	
+	}	
+}

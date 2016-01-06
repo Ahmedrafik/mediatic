@@ -1,16 +1,39 @@
 /***************************************************************
-"Interrupteurs" permettant de cacher les elements d'édition en vue et vice-versa
+"Interrupteurs" permettant de cacher les elements d'ï¿½dition en vue et vice-versa
 ***************************************************************/
-
-	body.consultation .only-view {display:block;}
-	body.consultation .only-edit {display:none;}
-	body.edition .only-view {display:none;}
-	body.edition .only-edit {display:block;}
-	
-	
+body.consultation .only-view {
+  display: block;
+}
+body.consultation .only-edit {
+  display: none;
+}
+body.edition .only-view {
+  display: none;
+}
+body.edition .only-edit {
+  display: block;
+}
+/* style global */
+.adherent nav {
+  background-color: #FF5300;
+}
+.adherent h1,
+.adherent h2 {
+  color: #FF5300;
+}
+.media nav {
+  background-color: #1419CC;
+}
+.media h1,
+.media h2 {
+  color: #1419CC;
+}
 /* Dropdown */
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
- }
+.nav .dropdown {
+  padding: 0%;
+}
+.nav .dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+  width: 100%;
+}

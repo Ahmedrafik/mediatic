@@ -1,15 +1,5 @@
 footer {
-  background-color: #292c2f;
+  background-color: #FF5300;
   color: #ffffff;
-}
-footer div.footer-left {
-  width: 40%;
-  display: inline-block;
-}
-footer div.footer-center {
-  width: 35%;
-  display: inline-block;
-}
-footer div.footer-about {
-  width: 20%;
+  font-family: 'Raleway', sans-serif;
 }

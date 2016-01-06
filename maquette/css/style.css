@@ -6,3 +6,11 @@
 	body.consultation .only-edit {display:none;}
 	body.edition .only-view {display:none;}
 	body.edition .only-edit {display:block;}
+	
+	
+/* Dropdown */
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+ }

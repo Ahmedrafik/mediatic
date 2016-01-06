@@ -7,26 +7,30 @@
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css">
 		
-		
 		<title>Tp file rouge Médiathèque</title>
-		
+
 	</head>
-	<body>	
-		<div class="container">	
-			<form action="">
+	<body class="container-fluid">	
+		
+			<form class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4" method="POST" action="">
 				<h1>Connection</h1>
-				<div class="input-group margin-bottom-sm">
+
+				<div class="col-xs-12 form-group input-group margin-bottom-sm">
 					<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
-					<input class="form-control" type="text" placeholder="Email address">
+						<label class="sr-only" for="username">Login</label>
+						<input type="text" class="form-control" id="username" placeholder="Username">
 				</div>
-				<div class="input-group">
+				
+				<div class="col-xs-12 form-group input-group margin-bottom-sm">
 					<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
-					<input class="form-control" type="password" placeholder="Password">
+					<label class="sr-only" for="password">Password</label>
+					<input type="password" class="form-control" id="password" placeholder="Password" />
 				</div>
-					<input type="submit" value="Log in" />
-					<a href="#">Mot de passe oublié ?</a>
+				<div>
+					<input class="col-xs-offset-3 col-xs-6 btn btn-default" type="submit" value="Log in" />
+					<a class="col-xs-offset-3 col-xs-9" href="#">Mot de passe oublié ?</a>
 				</div>
 			</form>	
-		</div>
+		
 	</body>
 </html>

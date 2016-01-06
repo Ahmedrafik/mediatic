@@ -3,10 +3,13 @@
 	<head>
 		<title>Tp file rouge Médiathèque </title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
+		<script type="text/javascript" src="lib/jquery.js"></script>		
 		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
-		<script type="text/javascript" src="lib/jquery.js"></script>
-		<script type="text/javascript" src="lib/font-awesome/css/font-awesome.css"></script>
+		
 	</head>
 	
 	<body class="main-page container-fluid">
@@ -14,14 +17,22 @@
 		<header class="row">
 			<h1>Médiathèque</h1>
 			<div id="logo" class="col-lg-2 col-md-1 col-sm-12 col-xs-3"></div>
-			<nav>
-				<ul class="col-md-12 col-lg-10 col-lg-offset-1 ">
-					<li class=" col-xs-2"> <a href="#">Accueil/Recherche média</a></li>
-					<li class=" col-xs-2"> <a href="#">Création Adhérents</a></li>
-					<li class=" col-xs-2"> <a href="#">Création Adhérents</a></li>
-					<li class=" col-xs-2"> <a href="#">Recherche adhérents</a></li>
-					<li class=" col-xs-offset-2 col-xs-2"> <a href="login.html" class="btn btn-default">Déconnection</a> </li>
-				</ul>
+			<nav class="col-xs-12">
+				<ul class="nav">
+					<li class="dropdown col-xs-6 col-sm-4"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Médias</a>
+						<ul class="dropdown-menu hidden-xs">
+							<li><a href="#">Liste des médias</a></li>
+							<li><a href="#opening">Ajouter média</a></li>
+						</ul>
+					</li>
+					<li class="dropdown col-xs-6 col-sm-4"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Adhérents</a>
+						<ul class="dropdown-menu hidden-xs">
+							<li><a href="#">Liste des adhérents</a></li>
+							<li><a href="#opening">Ajouter adhérent</a></li>
+						</ul>
+					</li>
+					<li class="col-xs-12 col-sm-4"><a href="#">Se déconnecter</a></li>
+				</ul>				
 			</nav>
 		</header>
 		<!-- template header -->	

@@ -1,5 +1,8 @@
-js/jquery.js
-lib/
+# Maquette
+
+maquette/js/jquery.js
+maquette/js/jquery.min.js
+maquette/lib/
 
 # Eclipse
 target/

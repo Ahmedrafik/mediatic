@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
 		<script type="text/javascript" src="lib/jquery.js"></script>
 		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<title>Accueil</title>
 		
@@ -36,9 +37,13 @@
 	<body class="container-fluid">
 		<!-- Debut template liste --> 
 		<main>
+			
 			<h2>[TITRE_H2]</h2>
+			
 			<section id="formulaire" class="row">
+				
 				<h3>Recherche de documents</h3>
+				
 				<form method="GET" action="template_list.html">
 					<div class="col-xs-12 col-sm-6 col-md-4 form-group">
 						<label for="title">Titre</label>
@@ -56,9 +61,13 @@
 							<option>DVD</option>
 						</select>
 					</div>
-					<input class="col-xs-offset-3 col-xs-6 col-sm-offset-8 col-sm-3 btn btn-default" type="submit">Rechercher</input>
+					<div class="col-xs-offset-3 col-xs-6 col-sm-offset-9 col-sm-3">
+						<input class="col-xs-12 btn btn-default" type="submit" value="Rechercher">
+					</div>
 				</form>
+			
 			</section>
+			
 			<section id="liste" class="row">
 				<h3>Résultats</h3>
 				<table class="col-sm-12 hidden-xs">

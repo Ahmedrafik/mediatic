@@ -1,0 +1,36 @@
+/* Dropdown */
+header{
+	h1{
+		display:none;
+	}
+	
+	#logo
+	{
+		display: block;
+		height: 120px;
+		background: url(../img/logo.jpg);
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;	
+	}
+	
+	.nav{
+		.dropdown
+		{
+			padding:0%;
+			&:hover{
+				.dropdown-menu{
+					display: block;
+					margin-top: 0;
+					width:100%;
+					/* TODO: ajouter ici mixin du border-radius */
+					border-radius: 0px;
+					border: none;					
+				}
+			}
+		}
+			a,a:active,a:visited{
+			color:white;
+			}		
+	}
+}

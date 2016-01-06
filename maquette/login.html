@@ -7,25 +7,27 @@
 		<script type="text/javascript" src="lib/jquery.js"></script>
 		<script type="text/javascript" src="lib/font-awesome/css/font-awesome.css"></script>
 		
-		
 		<title>Tp file rouge Médiathèque</title>
-		
+
 	</head>
-	<body>	
-		<div class="container">	
-			<form action="">
+	<body class="container-fluid">	
+		
+			<form class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4" method="POST" action="">
 				<h1>Connection</h1>
-				<div>
-					<input type="text" placeholder="Username" required="" id="username" />
+				<div class="col-xs-12 form-group">
+						<label class="sr-only" for="username">Login</label>
+						<input type="text" class="form-control" id="username" placeholder="Username">
 				</div>
-			<div>
-					<input type="password" placeholder="Password" required="" id="password" />
+				
+				<div class="col-xs-12 form-group">
+					<label class="sr-only" for="password">Password</label>
+					<input type="password" class="form-control" id="password" placeholder="Password" />
 				</div>
 				<div>
-					<input type="submit" value="Log in" />
-					<a href="#">Mot de passe oublié ?</a>
+					<input class="col-xs-offset-3 col-xs-6 btn btn-default" type="submit" value="Log in" />
+					<a class="col-xs-offset-3 col-xs-9" href="#">Mot de passe oublié ?</a>
 				</div>
 			</form>	
-		</div>
+		
 	</body>
 </html>

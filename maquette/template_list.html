@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+		<script type="text/javascript" src="lib/jquery.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+
+		<title>Accueil</title>
+	
+	</head>
+	<body class="container-fluid">
+
+		<h1>Recherche de documents</h1>
+		<form method="GET" action="template_list.html">
+			<div class="col-xs-12 col-sm-6 col-md-4 form-group">
+				<label for="title">Titre</label>
+				<input type="text" class="form-control" id="title" placeholder="Entrer un titre">
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 form-group">
+				<label for="author">Nom de l'auteur</label>
+				<input type="text" class="form-control col-xs-8" id="author" placeholder="Entrer un titre">
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 form-group">
+				<label for="type">Type de media</label>
+				<select id="type" class="form-control col-xs-8">
+					<option>Livre</option>
+					<option>CD</option>
+					<option>DVD</option>
+				</select>
+			</div>
+			<button class="col-xs-offset-3 col-xs-6 col-sm-offset-8 col-sm-3 btn btn-default" type="submit">Rechercher</button>
+
+			
+		</form>
+	
+		<table class="col-xs-12">
+			<tr>
+				<td><h3>Réference</h3></td>
+				<td><h3>Titre</h3></td>
+				<td><h3>Auteur</h3></td>
+				<td><h3>Editeur</h3></td>
+			</tr>
+			<tr>
+				<td>001</td>
+				<td>La visite du polygone</td>
+				<td>Alexis de la fontaine</td>
+				<td>DTA</td>
+			</tr>
+			<tr>
+				<td>001</td>
+				<td>La visite du polygone</td>
+				<td>Alexis de la fontaine</td>
+				<td>DTA</td>
+			</tr>
+			<tr>
+				<td>001</td>
+				<td>La visite du polygone</td>
+				<td>Alexis de la fontaine</td>
+				<td>DTA</td>
+			</tr>
+			<tr>
+				<td>001</td>
+				<td>La visite du polygone</td>
+				<td>Alexis de la fontaine</td>
+				<td>DTA</td>
+			</tr>
+			
+		</table>
+		
+	</body>
+</html>

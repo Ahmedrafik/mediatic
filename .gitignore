@@ -1,6 +1,5 @@
-bootstrap/
-font-awesome/
 js/jquery.js
+lib/
 
 # Eclipse
 target/

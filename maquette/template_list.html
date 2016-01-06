@@ -11,98 +11,100 @@
 	</head>
 	<body class="container-fluid">
 		<!-- Debut template liste --> 
-		<h2>[TITRE_H2]</h2>
-		<section id="formulaire" class="row">
-			<h3>Recherche de documents</h3>
-			<form method="GET" action="template_list.html">
-				<div class="col-xs-12 col-sm-6 col-md-4 form-group">
-					<label for="title">Titre</label>
-					<input type="text" class="form-control" id="title" placeholder="Entrer un titre">
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-4 form-group">
-					<label for="author">Nom de l'auteur</label>
-					<input type="text" class="form-control col-xs-8" id="author" placeholder="Entrer un titre">
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-4 form-group">
-					<label for="type">Type de media</label>
-					<select id="type" class="form-control col-xs-8">
-						<option>Livre</option>
-						<option>CD</option>
-						<option>DVD</option>
-					</select>
-				</div>
-				<button class="col-xs-offset-3 col-xs-6 col-sm-offset-8 col-sm-3 btn btn-default" type="submit">Rechercher</button>
-			</form>
-		</section>
-		<section id="liste" class="row">
-			<h3>Résultats</h3>
-			<table class="col-xs-12 hidden-xs">
-				<tr>
-					<th>Réference</th>
-					<th>Titre</th>
-					<th>Auteur</th>
-					<th>Editeur</th>
-				</tr>
-				<tr>
-					<td>001</td>
-					<td>La visite du polygone</td>
-					<td>Alexis de la fontaine</td>
-					<td>DTA</td>
-				</tr>
-				<tr>
-					<td>001</td>
-					<td>La visite du polygone</td>
-					<td>Alexis de la fontaine</td>
-					<td>DTA</td>
-				</tr>
-				<tr>
-					<td>001</td>
-					<td>La visite du polygone</td>
-					<td>Alexis de la fontaine</td>
-					<td>DTA</td>
-				</tr>
-				<tr>
-					<td>001</td>
-					<td>La visite du polygone</td>
-					<td>Alexis de la fontaine</td>
-					<td>DTA</td>
-				</tr>
-				
-			</table>
-			<ul class="visible-xs">
-				<li>
-					<p>
-						<strong>Réf:</strong> 001<br>
-						<strong>Titre:</strong> La visite du polygone<br>
-						<strong>Auteur:</strong> Alexis de la fontaine<br>
-						<strong>Editeur:</strong> DTA </br>
-					</p>
-				</li>
-				<li>
-					<p>
-						<strong>Réf:</strong> 001<br>
-						<strong>Titre:</strong> La visite du polygone<br>
-						<strong>Auteur:</strong> Alexis de la fontaine<br>
-						<strong>Editeur:</strong> DTA </br>
-					</p>
-				</li>
-				<li>
-					<p>
-						<strong>Réf:</strong> 001<br>
-						<strong>Titre:</strong> La visite du polygone<br>
-						<strong>Auteur:</strong> Alexis de la fontaine<br>
-						<strong>Editeur:</strong> DTA </br>
-					</p>
-				</li>
-				<li>
-					<p>
-						<strong>Réf:</strong> 001<br>
-						<strong>Titre:</strong> La visite du polygone<br>
-						<strong>Auteur:</strong> Alexis de la fontaine<br>
-						<strong>Editeur:</strong> DTA </br>
-					</p>
-				</li>
-			</ul>
+		<main>
+			<h2>[TITRE_H2]</h2>
+			<section id="formulaire" class="row">
+				<h3>Recherche de documents</h3>
+				<form method="GET" action="template_list.html">
+					<div class="col-xs-12 col-sm-6 col-md-4 form-group">
+						<label for="title">Titre</label>
+						<input type="text" class="form-control" id="title" placeholder="Entrer un titre">
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 form-group">
+						<label for="author">Nom de l'auteur</label>
+						<input type="text" class="form-control col-xs-8" id="author" placeholder="Entrer un titre">
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 form-group">
+						<label for="type">Type de media</label>
+						<select id="type" class="form-control col-xs-8">
+							<option>Livre</option>
+							<option>CD</option>
+							<option>DVD</option>
+						</select>
+					</div>
+					<button class="col-xs-offset-3 col-xs-6 col-sm-offset-8 col-sm-3 btn btn-default" type="submit">Rechercher</button>
+				</form>
+			</section>
+			<section id="liste" class="row">
+				<h3>Résultats</h3>
+				<table class="col-sm-12 hidden-xs">
+					<tr>
+						<th>Réference</th>
+						<th>Titre</th>
+						<th>Auteur</th>
+						<th>Editeur</th>
+					</tr>
+					<tr>
+						<td>001</td>
+						<td>La visite du polygone</td>
+						<td>Alexis de la fontaine</td>
+						<td>DTA</td>
+					</tr>
+					<tr>
+						<td>001</td>
+						<td>La visite du polygone</td>
+						<td>Alexis de la fontaine</td>
+						<td>DTA</td>
+					</tr>
+					<tr>
+						<td>001</td>
+						<td>La visite du polygone</td>
+						<td>Alexis de la fontaine</td>
+						<td>DTA</td>
+					</tr>
+					<tr>
+						<td>001</td>
+						<td>La visite du polygone</td>
+						<td>Alexis de la fontaine</td>
+						<td>DTA</td>
+					</tr>
+					
+				</table>
+				<ul class="visible-xs col-xs-12">
+					<li>
+						<p>
+							<strong>Réf:</strong> 001<br>
+							<strong>Titre:</strong> La visite du polygone<br>
+							<strong>Auteur:</strong> Alexis de la fontaine<br>
+							<strong>Editeur:</strong> DTA </br>
+						</p>
+					</li>
+					<li>
+						<p>
+							<strong>Réf:</strong> 001<br>
+							<strong>Titre:</strong> La visite du polygone<br>
+							<strong>Auteur:</strong> Alexis de la fontaine<br>
+							<strong>Editeur:</strong> DTA </br>
+						</p>
+					</li>
+					<li>
+						<p>
+							<strong>Réf:</strong> 001<br>
+							<strong>Titre:</strong> La visite du polygone<br>
+							<strong>Auteur:</strong> Alexis de la fontaine<br>
+							<strong>Editeur:</strong> DTA </br>
+						</p>
+					</li>
+					<li>
+						<p>
+							<strong>Réf:</strong> 001<br>
+							<strong>Titre:</strong> La visite du polygone<br>
+							<strong>Auteur:</strong> Alexis de la fontaine<br>
+							<strong>Editeur:</strong> DTA </br>
+						</p>
+					</li>
+				</ul>
+			</main>
 		</section>
 		<!-- Fin template liste --> 
 	</body>

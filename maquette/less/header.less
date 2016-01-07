@@ -14,21 +14,23 @@ header{
 		background: white url(../img/logo.jpg);
 		background-size: contain;
 		background-position: center center;
-		background-repeat: no-repeat;	
+		background-repeat: no-repeat;
 	}
 	
 	.nav{
 		.dropdown
 		{
 			padding:0%;
+			.dropdown-menu{
+				margin-top: 0;
+				width:100%;
+				.border-radius(0px);
+				.simplebox();
+				padding-top:0;
+			}
 			&:hover{
 				.dropdown-menu{
-					display: block;
-					margin-top: 0;
-					width:100%;
-					.border-radius(0px);
-					.simplebox();
-					padding-top:0;
+					display:block;
 				}
 			}	
 		}

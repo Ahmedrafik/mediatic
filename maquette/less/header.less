@@ -1,5 +1,8 @@
 /* Dropdown */
 header{
+    background: url(../img/fond-header.jpg);
+    background-size: cover;
+    background-position: 50% 35%;
 	h1{
 		display:none;
 	}
@@ -8,7 +11,7 @@ header{
 	{
 		display: block;
 		height: 120px;
-		background: url(../img/logo.jpg);
+		background: white url(../img/logo.jpg);
 		background-size: contain;
 		background-position: center center;
 		background-repeat: no-repeat;	
@@ -23,9 +26,9 @@ header{
 					display: block;
 					margin-top: 0;
 					width:100%;
-					/* TODO: ajouter ici mixin du border-radius */
-					border-radius: 0px;
-					border: none;					
+					.border-radius(0px);
+					.simplebox();
+					padding-top:0;
 				}
 			}	
 		}

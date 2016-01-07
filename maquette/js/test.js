@@ -17,3 +17,12 @@ $(window).load(function() {
 });
 
 */
+
+
+
+
+fucntion triTable() {
+	
+	
+	
+}

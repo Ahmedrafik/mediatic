@@ -1,28 +1,27 @@
-/*
+(function() {
+	'use strict';
 
-$(document).ready(function() {
-  // $(window).resize() est appelée chaque fois que la fenêtre est redimensionnée par l'utilisateur.
-  $(window).resize(function() {
-	 console.log('eeeeeee');
-    $('form').css({
-      'margin-top':($(window).height() - $('form').height()) / 2
-	  
-    });
-  });
-});
- 
-$(window).load(function() {
-  // au chargement complet de la page, la fonction resize() est appelée une fois pour initialiser le centrage.
-  $(window).resize(); 
-});
-
-*/
-
-
-
-
-fucntion triTable() {
 	
-	
-	
-}
+	/* Positionnement du formulaire de connexion */
+	$(document).ready(function() {
+	  $(window).resize(function() {
+		$('form').css({
+		  'margin-top':($(window).height() - $('form').height()) / 2	  
+		});
+	  });
+	});
+
+	$(window).load(function() {
+	  $(window).resize(); 
+	});
+
+	/* Trie des tableaux de recherche */
+	function triTable() {
+		console.log('TODO tri du tableau');	
+	}
+	$(document).ready(function() {
+		// Une fois la page chargée, ne pas oublier de faire le tri
+		triTable();
+	});
+
+})();

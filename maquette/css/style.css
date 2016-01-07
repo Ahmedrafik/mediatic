@@ -1,19 +1,45 @@
 form {
   padding: 10px;
   border-radius: 5px;
-  background-color: #F3E2A9;
+
 }
 form label {
   font-family: Georgia;
 }
-form input.form-control {
+
+form .form-control {
   border-radius: 25px;
 }
-form input.form-control:focus {
+form .form-control:focus {
   background-color: #F8ECE0;
 }
-form input.btn {
-  border-radius: 25px;
+/* Dropdown */
+header h1 {
+  display: none;
+}
+header #logo {
+  display: block;
+  height: 120px;
+  background: url(../img/logo.jpg);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+header .nav .dropdown {
+  padding: 0%;
+}
+header .nav .dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+  width: 100%;
+  /* TODO: ajouter ici mixin du border-radius */
+  border-radius: 0px;
+  border: none;
+}
+header .nav a,
+header .nav a:active,
+header .nav a:visited {
+  color: white;
 }
 /***************************************************************
 "Interrupteurs" permettant de cacher les elements d'�dition en vue et vice-versa
@@ -34,6 +60,12 @@ body.edition .only-edit {
 .adherent nav {
   background-color: #FF5300;
 }
+.adherent nav li a:hover {
+  background-color: #993200;
+}
+.adherent nav li .dropdown-menu {
+  background-color: #FF5300;
+}
 .adherent h1,
 .adherent h2 {
   color: #FF5300;
@@ -41,16 +73,13 @@ body.edition .only-edit {
 .media nav {
   background-color: #1419CC;
 }
+.media nav li a:hover {
+  background-color: #0b0e6f;
+}
+.media nav li .dropdown-menu {
+  background-color: #1419CC;
+}
 .media h1,
 .media h2 {
   color: #1419CC;
-}
-/* Dropdown */
-.nav .dropdown {
-  padding: 0%;
-}
-.nav .dropdown:hover .dropdown-menu {
-  display: block;
-  margin-top: 0;
-  width: 100%;
 }

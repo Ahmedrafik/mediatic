@@ -13,7 +13,6 @@ body.edition .only-edit {display:block;}
 /* colorisation */
 
 body{
-
 	&.adherent
 	{
 		nav{
@@ -41,11 +40,10 @@ body{
 				color:@colorAdherent;	
 			}
 		}
-		form{
-			background-color: @colorAdherent;
-		}
 		table{
-			background-color: @colorAdherent;
+			th{
+				background-color: @colorAdherent;
+			}
 		}
 		
 	}
@@ -69,6 +67,7 @@ body{
 		}
 		footer{
 			background-color: @colorMedia;
+
 		}
 		main{		
 			h1,h2
@@ -79,8 +78,11 @@ body{
 		form{
 			background-color: @colorMedia;
 		}
+
 		table{
-			background-color: @colorMedia;
+			th{
+				background-color: @colorMedia;
+			}
 		}
 	}
 

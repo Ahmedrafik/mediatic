@@ -19,9 +19,5 @@
 	function triTable() {
 		console.log('TODO tri du tableau');	
 	}
-	$(document).ready(function() {
-		// Une fois la page chargée, ne pas oublier de faire le tri
-		triTable();
-	});
 
 })();

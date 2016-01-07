@@ -21,14 +21,16 @@ header{
 		.dropdown
 		{
 			padding:0%;
+			.dropdown-menu{
+				margin-top: 0;
+				width:100%;
+				.border-radius(0px);
+				.simplebox();
+				padding-top:0;
+			}
 			&:hover{
 				.dropdown-menu{
-					display: block;
-					margin-top: 0;
-					width:100%;
-					.border-radius(0px);
-					.simplebox();
-					padding-top:0;
+					display:block;
 				}
 			}	
 		}

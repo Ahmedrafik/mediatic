@@ -18,7 +18,7 @@ body{
 	{
 		nav{
 			background-color:@colorAdherent;	
-			li{
+			li,li.open{
 				a:hover,a:focus,a:active{
 					background-color:@colorAdherentDark;
 				}
@@ -27,15 +27,19 @@ body{
 					background-color:@colorAdherent;
 				}
 			}
+			li.open>a{
+				background-color:@colorAdherentDark;
+			}
 		}
 		
 		footer{
 			background-color: @colorAdherent;
 		}
-
-		h1,h2
-		{
-			color:@colorAdherent;	
+		main{
+			h1,h2
+			{
+				color:@colorAdherent;	
+			}
 		}
 		form{
 			background-color: @colorAdherent;
@@ -43,13 +47,14 @@ body{
 		table{
 			background-color: @colorAdherent;
 		}
+		
 	}
 
 	&.medias
 	{
 		nav{
 			background-color:@colorMedia;
-			li{
+			li,li.open{
 				a:hover,a:focus,a:active{
 					background-color:@colorMediaDark;
 				}
@@ -58,14 +63,19 @@ body{
 					background-color:@colorMedia;
 				}			
 			}
+			li.open>a{
+				background-color:@colorMediaDark;
+			}			
 		}
 		footer{
 			background-color: @colorMedia;
-		}		
-		h1,h2
-		{
-			color:@colorMedia;	
-		}	
+		}
+		main{		
+			h1,h2
+			{
+				color:@colorMedia;	
+			}
+		}
 		form{
 			background-color: @colorMedia;
 		}

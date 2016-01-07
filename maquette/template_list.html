@@ -36,7 +36,30 @@
 		
 	
 	</head>
-	<body class="container-fluid">
+	<body class="container-fluid adherent">
+		<!-- template header -->
+		<header class="row">
+			<h1>Médiathèque</h1>
+			<div id="logo" class="col-sm-2 hidden-xs"></div>
+			<nav class="col-xs-12 col-sm-10">
+				<ul class="nav">
+					<li class="dropdown col-xs-6 col-sm-4"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-film"></i> Médias</a>
+						<ul class="dropdown-menu hidden-xs">
+							<li><a href="#"><i class="fa fa-list"></i> Liste des médias</a></li>
+							<li><a href="#opening"><i class="fa fa-plus"></i> Ajouter média</a></li>
+						</ul>
+					</li>
+					<li class="dropdown col-xs-6 col-sm-4"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Adhérents</a>
+						<ul class="dropdown-menu hidden-xs">
+							<li><a href="#"><i class="fa fa-list"></i> Liste des adhérents</a></li>
+							<li><a href="#opening"><i class="fa fa-plus"></i> Ajouter adhérent</a></li>
+						</ul>
+					</li>
+					<li class="col-xs-12 col-sm-4"><a href="login.html"><i class="fa fa-sign-out"></i> Se déconnecter</a></li>
+				</ul>				
+			</nav>
+		</header>
+		<!-- template header -->	
 		<!-- Debut template liste --> 
 		<main>
 			
@@ -142,5 +165,28 @@
 			</main>
 		</section>
 		<!-- Fin template liste --> 
+		<!-- footer -->
+		<footer class="row">
+			<section class="col-xs-12 col-sm-6 col-md-4">
+				<strong>Développé par</strong>
+				<p class="footer-company-name">Ahmed Rafik</p>
+				<p class="footer-company-name">Guillaume Di Nicola</p>
+				<p class="footer-company-name">Justin Ossart</p>
+			</section>
+			<section class="col-xs-12 col-sm-6 col-md-4">
+				<strong>Responsable de la maintenance</strong>
+				<div>
+					<p><span class="fa fa-user-md"></span> Yann POLYGONE</p>
+					<p><span class="fa fa-phone"></span> +1 234 56789 </p>
+					<p><span class="fa fa-envelope"></span> <a href="mailto:helpdesk@mediatic-rambla.com">helpdesk@mediatic-rambla.com</a></p>
+				</div>
+			</section>
+			<section class="col-xs-12 col-sm-12 col-md-4">
+				<strong>Copyright Mediatic Cote Rambla &copy; 2015</strong>
+					<p><span class="fa fa-map-marker fa-2x"></span> 421 Rambla des Calissons Montpellier, France</p>
+			</section>			
+		</footer>
+		<!-- footer -->		
+
 	</body>
 </html>

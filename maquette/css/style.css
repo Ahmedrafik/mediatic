@@ -1,3 +1,20 @@
+form {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #F3E2A9;
+}
+form label {
+  font-family: Georgia;
+}
+form input.form-control {
+  border-radius: 25px;
+}
+form input.form-control:focus {
+  background-color: #F8ECE0;
+}
+form input.btn {
+  border-radius: 25px;
+}
 /***************************************************************
 "Interrupteurs" permettant de cacher les elements d'�dition en vue et vice-versa
 ***************************************************************/

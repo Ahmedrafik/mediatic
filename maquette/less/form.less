@@ -1,17 +1,31 @@
 @activeinputcolor:#F8ECE0;
 
+
 form{
 	padding: 10px;
 	border-radius: 5px;
+	background-color: #F3E2A9;
 	label{
 		font-family: Georgia;
 	}
-	.form-control{
-		border-radius: 25px;	
+	input{
+		&.form-control{
+			border-radius: 25px;	
+		}
 	}
+	input{
+		&.form-control:focus{
+			background-color: #F8ECE0;
+		}
+	}
+	
+	.form-control:hover{
 
-	.form-control:focus{
-		background-color: #F8ECE0;
+	}
+	input{
+		&.btn{
+			border-radius: 25px;
+		}
 	}
 
 }

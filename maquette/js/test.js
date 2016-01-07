@@ -1,3 +1,5 @@
+/*
+
 $(document).ready(function() {
   // $(window).resize() est appelée chaque fois que la fenêtre est redimensionnée par l'utilisateur.
   $(window).resize(function() {
@@ -14,4 +16,4 @@ $(window).load(function() {
   $(window).resize(); 
 });
 
-
+*/

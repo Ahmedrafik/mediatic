@@ -1,5 +1,33 @@
 angular.module('services' , [])
-.factory('listeMediaService', function($http) {
+	.factory('connectService', function($http){
+		var connectServ = this;
+		connectServ.connected = false;
+		var url = 'http://192.168.1.14:8080/resource/connexion.login';
+		return {
+			connect : function(log, pass){
+				console.log('connectService');
+				var data ={
+					login : log,
+					mdp : pass
+				};
+				console.log(data);
+				return $http.post(url, data).then(function success(){
+					connectServ.connected = true;
+					console.log("authentification réussit");
+				}, function error(response){
+					console.log('authentification impossible de ', data.login, response);
+					throw 'connexion impossible';
+				});
+				
+			},	
+
+			isConnected : function(){
+				return connectServ.connected;
+			}	
+		}	
+	})
+
+	.factory('listeMediaService', function($http) {
 		/* bouchon : on récupère toute la fausse BDD */
 		var url ='http://192.168.1.14:8080/resource/media.recherche';
 		var promesse = $http.get(url).then(function(response){
@@ -25,8 +53,8 @@ angular.module('services' , [])
 			}*/
 		}; 
 	})
-<<<<<<< HEAD
-.factory('listeAdherentService', function($http) {
+	
+	.factory('listeAdherentService', function($http) {
 		/* bouchon : on récupère toute la fausse BDD */
 		var url ='http://192.168.1.14:8080/resource/adherent.recherche';
 		var promesse = $http.get(url).then(function(response) {
@@ -39,32 +67,26 @@ angular.module('services' , [])
 				},
 
 		}; 
-=======
-	.factory('connectService', function($http){
-		var connectServ = this;
-		var connected = false;
-		var url = 'http://192.168.1.14:8080/resource/connexion.login';
+	})
+
+	.factory('singleMediaService', function($http) {
+
 		return {
-			connect : function(log, pass){
-				console.log('connectService');
-				var data ={
-					login : log,
-					mdp : pass
-				};
-				console.log(data);
-				var promise = $http.post(url, data).then(function success(){
-					connected = true;
-					console.log("authentification réussit");
-				}, function error(response){
-					console.log('authentification impossible de ', data.login, response);
+			getMedia: function (id) {
+				var url ='http://192.168.1.14:8080/resource/media.accession';
+				return $http.get(url, {params : {id : id}}).then(function(response) {
+					return response.data;
 				});
-//				console.log("connected = " + connected);
+				// return promise.then(function (mediaList) {
+				// 	for (var i = 0 ; i < mediaList.length ; i++) {
+				// 		if (mediaList[i].id == id) {
+				// 			console.log(mediaList[i]);
+				// 			return mediaList[i];
+				// 		}
+				// 	}
+				// 	throw "Not found";
+				// });
+			}
 
-			},	
-
-			isConnected : function(){
-				return connected;
-			}	
-		}	
->>>>>>> 96cb9a0f38969d8c223b144daf861ff25ed6b6e6
+		}; 
 	})

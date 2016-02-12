@@ -1,6 +1,6 @@
 angular.module('moduleList', [])
 	.config(function ($routeProvider) {	
-		$routeProvider.when('/media/', {
+		$routeProvider.when('/media', {
 			templateUrl: 'view-list/list-view.html',
 			controller: 'mediaListCtrl',
 			controllerAs: 'listeCtrl'
@@ -15,8 +15,7 @@ angular.module('moduleList', [])
 
 	})
 
-
-	.controller('mediaListCtrl', function($rootScope,listeMediaService) {
+	.controller('mediaListCtrl', function($rootScope,listeMediaService, $location) {
 		var controller = this;
 		var bd = angular.element(document).find('body');
 		$rootScope.pageTitle = 'Liste des médias';
@@ -34,8 +33,9 @@ angular.module('moduleList', [])
 			controller.list = data;
 		});
 
-		
-
+		controller.view = function(id){
+			$location.path('/media/{{id}}');
+		}
 	})
 
 
@@ -45,4 +45,4 @@ angular.module('moduleList', [])
 		$rootScope.pageTitle = 'Liste des adhérents';
 		bd.removeClass("medias");		
 		bd.addClass('adherents');
-	});
+	})

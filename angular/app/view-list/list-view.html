@@ -40,8 +40,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="elt in listeCtrl.list">
-					<td ng-repeat="type in listeCtrl.fields">
+				<tr ng-repeat="elt in listeCtrl.list" ng-click="listeCtrl.view(elt.id)">
+					<td ng-repeat="type in listeCtrl.fields" >
 						{{elt[type.key]}}
 					</td>
 				</tr>

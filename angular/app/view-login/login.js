@@ -15,7 +15,7 @@ angular.module('logMod', ['ngRoute', 'services'])
 			console.log($scope.user.login);
 			connectService.connect($scope.user.login, $scope.user.mdp).then(function success(){
 				console.log('connect');
-				$location.path('/media/liste');	
+				$location.path('/media');	
 			}, function error(){
 				$location.path('/login');	
 			});		

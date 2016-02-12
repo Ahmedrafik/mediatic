@@ -19,7 +19,7 @@ angular.module('moduleList', [])
 	.controller('mediaCtrl', function($rootScope) {
 		var controller = this;
 		$rootScope.pageTitle = 'list-media';
-	});
+	})
 
 
 	.controller('adherentCtrl', function($rootScope) {

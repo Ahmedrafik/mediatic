@@ -5,11 +5,14 @@ form{
 	padding: 10px;
 	border-radius: 5px;
 	label{
-		font-family: Georgia;
+		&.fa.fa-fw
+		{
+			margin-bottom: 0px;		
+		}
 	}
 	select,input{
 		&.form-control{
-			border-radius: 25px;	
+			.border-radius(0px);	
 		}
 	}
 	select,input{
@@ -18,10 +21,4 @@ form{
 		}
 
 	}
-	input{
-		&.btn{
-			border-radius: 25px;
-		}
-	}
-
 }

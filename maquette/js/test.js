@@ -15,9 +15,7 @@
 	  $(window).resize(); 
 	});
 
-	/* Trie des tableaux de recherche */
-	function triTable() {
-		console.log('TODO tri du tableau');	
-	}
-
 })();
+
+
+

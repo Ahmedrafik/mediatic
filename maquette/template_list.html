@@ -2,16 +2,18 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
 		<script type="text/javascript" src="lib/jquery.js"></script>
 		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.css">
 
 		<title>Accueil</title>
 		
 		<!-- Favicon -->
-		
+			
 			<link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
 			<link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
 			<link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
@@ -35,7 +37,7 @@
 		
 	
 	</head>
-	<body class="container-fluid adherent">
+	<body class="container-fluid medias">
 		<!-- template header -->
 		<header class="row">
 			<h1>Médiathèque</h1>
@@ -96,10 +98,10 @@
 				<h3>Résultats</h3>
 				<table id="myTable" class="col-sm-12 hidden-xs">
 					<tr>
-						<th>Réference <i class="fa fa-sort" onclick="triTable()"></i></th>
-						<th>Titre <i class="fa fa-sort" onclick="triTable()"></i></th>
-						<th>Auteur <i class="fa fa-sort" onclick="triTable()"></i> </th>
-						<th>Editeur <i class="fa fa-sort" onclick="triTable()"></i> </th>
+						<th><a href="javascript:triTable()">Réference <i class="fa fa-sort"></i></a></th>
+						<th><a href="javascript:triTable()">Titre <i class="fa fa-sort"></i></a></th>
+						<th><a href="javascript:triTable()">Auteur <i class="fa fa-sort"></i></a></th>
+						<th><a href="javascript:triTable()">Editeur <i class="fa fa-sort"></i></a></th>
 					</tr>
 					<tr>
 						<td>001</td>

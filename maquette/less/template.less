@@ -3,6 +3,7 @@
 ***************************************************************/
 body,html{
 	height:100%;
+	font-family: 'Open Sans', sans-serif;
 }
 
 body.consultation .only-view {display:block;}
@@ -39,8 +40,13 @@ body{
 			{
 				color:@colorAdherent;	
 			}
+			h3{
+				background-color: @colorAdherent;
+				color:white;
+			}			
 		}
 		table{
+			background-color:@colorAdherentLighter;
 			th{
 				background-color: @colorAdherent;
 			}
@@ -79,15 +85,19 @@ body{
 			{
 				color:@colorMedia;	
 			}
+			h3{
+				background-color: @colorMedia;
+				color:white;
+			}			
 		}
-		form{
-			background-color: @colorMedia;
-		}
-
 		table{
+			background-color:@colorMediaLighter;
 			th{
 				background-color: @colorMedia;
 			}
+		}		
+		form{
+			background-color: @colorMedia;
 		}
 		h3{
 			background-color: @colorMedia;
@@ -95,6 +105,15 @@ body{
 		.list-form{
 			background-color: @colorMedia;
 		}
+	}
+	.noselect
+	{
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 	}
 
 }

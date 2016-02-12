@@ -14,6 +14,8 @@ function uiToggleEdition()
 	}
 }
 
+/* calcul */
+ 
 /* Bouchons */
 
 function triTable() {

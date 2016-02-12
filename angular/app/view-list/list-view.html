@@ -31,71 +31,29 @@
 			
 	<section class="row">
 	<h3>Résultats</h3>
-		<table id="myTable" class="col-sm-12 hidden-xs" ng-repeat="m in mediaL.list">
-			
-			<tr>
-				<th><a href="javascript:triTable()">Réference <i class="fa fa-sort"></i></a></th>
-				<th><a href="javascript:triTable()">Titre <i class="fa fa-sort"></i></a></th>
-				<th><a href="javascript:triTable()">Auteur <i class="fa fa-sort"></i></a></th>
-				<th><a href="javascript:triTable()">Editeur <i class="fa fa-sort"></i></a></th>
-			</tr>
-			<tr>
-				<td>001</td>
-				<td>La visite du polygone</td>
-				<td>Alexis de la fontaine</td>
-				<td>DTA</td>
-			</tr>
-			<tr>
-				<td>002</td>
-				<td>Ma ville Montpellier</td>
-				<td>Admed Rafik</td>
-				<td>MHSC</td>
-			</tr>
-			<tr>
-				<td>003</td>
-				<td>zzzzzzzzzzzzzzzzz</td>
-				<td>Guillaume Voltaire</td>
-				<td>DTA</td>
-			</tr>
-			<tr>
-				<td>004</td>
-				<td>La maitre du web</td>
-				<td>Guillaume le prof</td>
-				<td>Iocean</td>
-			</tr>
+		<table id="myTable" class="col-sm-12 hidden-xs" >
+			<thead>
+				<tr>
+					<th ng-repeat="type in listeCtrl.fields">
+						<a href="javascript:triTable({type.key}})"><i class="fa fa-sort"></i>{{type.label}}</a>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="elt in listeCtrl.list">
+					<td ng-repeat="type in listeCtrl.fields">
+						{{elt[type.key]}}
+					</td>
+				</tr>
+			</tbody>
 		</table>
 		
+		
+		<!-- TODO style a refaire pour le format mobile  -->
 		<ul class="liste visible-xs col-xs-12">
-			<li>
-				<p>
-					<strong>Réf:</strong> 001<br>
-					<strong>Titre:</strong> La visite du polygone<br>
-					<strong>Auteur:</strong> Alexis de la fontaine<br>
-					<strong>Editeur:</strong> DTA </br>
-				</p>
-			</li>
-			<li>
-				<p>
-					<strong>Réf:</strong> 001<br>
-					<strong>Titre:</strong> La visite du polygone<br>
-					<strong>Auteur:</strong> Alexis de la fontaine<br>
-					<strong>Editeur:</strong> DTA </br>
-				</p>
-			</li>
-			<li>
-				<p>
-					<strong>Réf:</strong> 001<br>
-					<strong>Titre:</strong> La visite du polygone<br>
-					<strong>Auteur:</strong> Alexis de la fontaine<br>
-					<strong>Editeur:</strong> DTA </br>
-				</p>
-			</li>
-			<li>
-				<p>
-					<strong>Réf:</strong> 001<br>
-					<strong>Titre:</strong> La visite du polygone<br>
-					<strong>Auteur:</strong> Alexis de la fontaine<br>
-					<strong>Editeur:</strong> DTA </br>
+			<li ng-repeat="elt in listeCtrl.list">
+				<p ng-repeat="type in listeCtrl.fields"> 
+					<strong>{{type.label}}  : </strong>{{elt[type.key]}}<br> 
 				</p>
 			</li>
 		</ul>

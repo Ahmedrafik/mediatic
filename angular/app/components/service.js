@@ -1,8 +1,10 @@
 angular.module('services' , [])
 .factory('listeMediaService', function($http) {
 		/* bouchon : on récupère toute la fausse BDD */
-		var url ='https://http://192.168.1.14:8080/resource/media.recherche';
-		var promesse = $http.get(url).then(function(response) {
+		var url ='http://192.168.1.14:8080/resource/media.recherche';
+		var promesse = $http.get(url).then(function(response){
+			//console.log(Object.key(response.data[0]));
+			console.log(response.data);
 			return response.data;
 		});
 
@@ -23,6 +25,21 @@ angular.module('services' , [])
 			}*/
 		}; 
 	})
+<<<<<<< HEAD
+.factory('listeAdherentService', function($http) {
+		/* bouchon : on récupère toute la fausse BDD */
+		var url ='http://192.168.1.14:8080/resource/adherent.recherche';
+		var promesse = $http.get(url).then(function(response) {
+			return response.data;
+		});
+
+		return {
+			getList : function() {
+				return promesse;
+				},
+
+		}; 
+=======
 	.factory('connectService', function($http){
 		var connectServ = this;
 		var connected = false;
@@ -49,4 +66,5 @@ angular.module('services' , [])
 				return connected;
 			}	
 		}	
+>>>>>>> 96cb9a0f38969d8c223b144daf861ff25ed6b6e6
 	})

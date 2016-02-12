@@ -3,14 +3,14 @@ angular.module('moduleSingle', [])
 		$routeProvider.when('/media/test', {
 			templateUrl: 'view-single/single-view.html',
 			controller: 'mediaSingleCtrl',
-			controllerAs: 'mediaS'
+			controllerAs: 'singleCtrl'
 		});
 
 
 		$routeProvider.when('/adherentList', {
 			templateUrl: 'view-list/list-view.html',
 			controller: 'adherentSingleCtrl',
-			controllerAs: 'adherentS'
+			controllerAs: 'singleCtrl'
 		});
 
 	})
@@ -19,7 +19,7 @@ angular.module('moduleSingle', [])
 	.controller('mediaSingleCtrl', function($rootScope) {
 		var controller = this;
 		var bd = angular.element(document).find('body');
-		$rootScope.pageTitle = 'Média : ' + controller.media.title;
+		$rootScope.pageTitle = 'Média : ' + controller.media.titre;
 		bd.removeClass("adherents");		
 		bd.addClass('medias');
 	})
@@ -28,7 +28,7 @@ angular.module('moduleSingle', [])
 	.controller('adherentSingleCtrl', function($rootScope) {
 		var controller = this;
 		var bd = angular.element(document).find('body');
-		$rootScope.pageTitle = 'Adhérent : ' + controller.adherent.name;
+		$rootScope.pageTitle = 'Adhérent : ' + toUpper(controller.adherent.nom) + ' ' + controller.adherent.prenom;
 		bd.removeClass("medias");		
 		bd.addClass('adherents');
 	});

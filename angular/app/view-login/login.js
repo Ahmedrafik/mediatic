@@ -8,18 +8,17 @@ angular.module('logMod', ['ngRoute', 'services'])
 			controllerAs : 'logCtrl'
 		});
 	})
-	.controller('loginController', function($routeParams, $scope, $location, connectService){
+	.controller('loginController', function($routeParams, $rootScope, $scope, $location, connectService){
 		var logCtrl = this;
-
+		$rootScope.pageTitle = 'Page de Login';
 		logCtrl.connect = function(){
 			console.log($scope.user.login);
-			
-			connectService.connect($scope.user.login, $scope.user.mdp);
-			console.log(connectService.isConnected());
-			if (connectService.isConnected()) {
-				$location.path('/list');	
-			};
-			
+			connectService.connect($scope.user.login, $scope.user.mdp).then(function success(){
+				console.log('connect');
+				$location.path('/media/liste');	
+			}, function error(){
+				$location.path('/login');	
+			});		
 		}
 		
 

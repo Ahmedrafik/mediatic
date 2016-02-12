@@ -1,6 +1,6 @@
 angular.module('moduleSingle', [])
 	.config(function ($routeProvider) {	
-		$routeProvider.when('/media/:mediaID', {
+		$routeProvider.when('/media/test', {
 			templateUrl: 'view-single/single-view.html',
 			controller: 'mediaSingleCtrl',
 			controllerAs: 'mediaS'

@@ -16,12 +16,18 @@ angular.module('moduleList', [])
 	})
 
 
-	.controller('mediaListCtrl', function($rootScope) {
+	.controller('mediaListCtrl', function($rootScope,listeMediaService) {
 		var controller = this;
 		var bd = angular.element(document).find('body');
 		$rootScope.pageTitle = 'Liste des médias';
 		bd.removeClass("adherents");		
 		bd.addClass('medias');
+
+		controller.list = [];
+		listeMediaService.getList().then(function (data) {
+			controller.list = data;
+		});
+
 	})
 
 

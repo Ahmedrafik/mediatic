@@ -53,7 +53,7 @@ angular.module('services' , [])
 			}*/
 		}; 
 	})
-	
+
 	.factory('listeAdherentService', function($http) {
 		/* bouchon : on récupère toute la fausse BDD */
 		var url ='http://192.168.1.14:8080/resource/adherent.recherche';
@@ -69,8 +69,7 @@ angular.module('services' , [])
 		}; 
 	})
 
-	.factory('singleMediaService', function($http) {
-
+	.factory('singleMediaService', function($http){
 		return {
 			getMedia: function (id) {
 				var url ='http://192.168.1.14:8080/resource/media.accession';
@@ -87,6 +86,5 @@ angular.module('services' , [])
 				// 	throw "Not found";
 				// });
 			}
-
-		}; 
+		}	
 	})

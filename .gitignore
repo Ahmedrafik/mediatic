@@ -10,6 +10,7 @@ angular/app/lib/
 angular/app/favicon/
 angular/app/img/
 angular/app/lib/
+angular/app/bower_components/
 node_modules/
 
 # Eclipse

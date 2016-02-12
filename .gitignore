@@ -3,6 +3,15 @@
 maquette/lib/
 maquette/css/
 
+# Angular
+
+angular/app/css/
+angular/app/lib/
+angular/app/favicon/
+angular/app/img/
+angular/app/lib/
+node_modules/
+
 # Eclipse
 target/
 .classpath

@@ -1,11 +1,8 @@
 'use strict'
 
-angular.module('routageApp', ['ngRoute', 'catalogMod', 'bookMod', 'cartMod', 'services', 'app.directives'])
+angular.module('mediaticApp', [])
 	.config(function($routeProvider){
 		$routeProvider.otherwise({
-			redirectTo : '/catalog'
+			redirectTo : '/login'
 		});
-	})
-	.config(function(cartProvider){
-		cartProvider.limit = 200;
 	})

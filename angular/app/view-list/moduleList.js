@@ -1,28 +1,34 @@
 angular.module('moduleList', [])
 	.config(function ($routeProvider) {	
-		$routeProvider.when('/mediaList', {
+		$routeProvider.when('/media/liste', {
 			templateUrl: 'view-list/list-view.html',
-			controller: 'mediaCtrl',
-			controllerAs: 'media'
+			controller: 'mediaListCtrl',
+			controllerAs: 'mediaL'
 		});
 
 
-		$routeProvider.when('/adherentList', {
+		$routeProvider.when('/adherent/liste', {
 			templateUrl: 'view-list/list-view.html',
-			controller: 'adherentCtrl',
-			controllerAs: 'adherent'
+			controller: 'adherentListCtrl',
+			controllerAs: 'adherentL'
 		});
 
 	})
 
 
-	.controller('mediaCtrl', function($rootScope) {
+	.controller('mediaListCtrl', function($rootScope) {
 		var controller = this;
-		$rootScope.pageTitle = 'list-media';
+		var bd = angular.element(document).find('body');
+		$rootScope.pageTitle = 'Liste des médias';
+		bd.removeClass("adherents");		
+		bd.addClass('medias');
 	})
 
 
-	.controller('adherentCtrl', function($rootScope) {
+	.controller('adherentListCtrl', function($rootScope) {
 		var controller = this;
-		$rootScope.pageTitle = 'list-adherent';
+		var bd = angular.element(document).find('body');
+		$rootScope.pageTitle = 'Liste des adhérents';
+		bd.removeClass("medias");		
+		bd.addClass('adherents');
 	});

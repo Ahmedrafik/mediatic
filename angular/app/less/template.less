@@ -1,0 +1,135 @@
+/***************************************************************
+"Interrupteurs" permettant de cacher les elements d'édition en vue et vice-versa
+***************************************************************/
+body,html{
+	height:100%;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body.consultation .only-view {display:block;}
+body.consultation .only-edit {display:none;}
+body.edition .only-view {display:none;}
+body.edition .only-edit {display:block;}
+	
+/* colorisation */
+
+body{
+	&.creation
+	{
+		.retour{
+			display:none;
+		}
+	}
+	&.adherent
+	{
+		nav{
+			background-color:@colorAdherent;	
+			li,li.open{
+				a:hover,a:focus,a:active{
+					background-color:@colorAdherentDark;
+				}
+				.dropdown-menu
+				{
+					background-color:@colorAdherent;
+				}
+			}
+			li.open>a{
+				background-color:@colorAdherentDark;
+			}
+		}
+		
+		footer{
+			background-color: @colorAdherent;
+		}
+		main{
+			h1,h2
+			{
+				color:@colorAdherent;	
+			}
+			h3{
+				background-color: @colorAdherent;
+				color:white;
+			}
+			.retour{
+				color: @colorAdherent;
+				&:hover{color:@colorAdherentDark;}
+			}			
+		}
+		table{
+			background-color:@colorAdherentLighter;
+			th{
+				background-color: @colorAdherent;
+				&:hover{background-color: @colorAdherentDark;}
+			}
+		}
+		h3{
+			background-color: @colorAdherent;
+		}	
+		.list-form{
+			background-color: @colorAdherent;
+		}
+	}
+
+	&.medias
+	{
+		nav{
+			background-color:@colorMedia;
+			li,li.open{
+				a:hover,a:focus,a:active{
+					background-color:@colorMediaDark;
+				}
+				.dropdown-menu
+				{
+					background-color:@colorMedia;
+				}			
+			}
+			li.open>a{
+				background-color:@colorMediaDark;
+			}			
+		}
+		footer{
+			background-color: @colorMedia;
+
+		}
+		main{		
+			h1,h2
+			{
+				color:@colorMedia;	
+			}
+			h3{
+				background-color: @colorMedia;
+				color:white;
+			}	
+			.retour{
+				color: @colorMedia;
+				&:hover{color:@colorMediaDark;}
+			}
+		}
+		table{
+			background-color:@colorMediaLighter;
+			th{
+				background-color: @colorMedia;
+				&:hover{background-color: @colorMediaDark;}
+			}
+		}		
+		form{
+			background-color: @colorMedia;
+		}
+		h3{
+			background-color: @colorMedia;
+		}
+		.list-form{
+			background-color: @colorMedia;
+		}
+	}
+	.noselect
+	{
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+}

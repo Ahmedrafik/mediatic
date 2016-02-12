@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('mediaticApp', ['ngRoute', 'services', 'logMod'])
+angular.module('mediaticApp', ['ngRoute', 'logMod', 'moduleList', 'moduleSingle','services'])
 	.config(function($routeProvider,$httpProvider){
 		$routeProvider.otherwise({
 			redirectTo : '/login'

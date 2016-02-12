@@ -1,6 +1,6 @@
 <main>
 	
-	<h2>[TITRE_H2]</h2>		
+	<h2>{{pageTitle}}</h2>		
 	
 	<section id="formulaire" class="row">
 	<h3>Recherche de documents</h3>			
@@ -31,7 +31,8 @@
 			
 	<section class="row">
 	<h3>Résultats</h3>
-		<table id="myTable" class="col-sm-12 hidden-xs">
+		<table id="myTable" class="col-sm-12 hidden-xs" ng-repeat="m in mediaL.list">
+			
 			<tr>
 				<th><a href="javascript:triTable()">Réference <i class="fa fa-sort"></i></a></th>
 				<th><a href="javascript:triTable()">Titre <i class="fa fa-sort"></i></a></th>

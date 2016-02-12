@@ -2,7 +2,7 @@
 <html ng-app="mediaticApp">
 <meta charset="UTF-8"/>
 	<head>
-		<title>Mediatic</title>
+		<title>{{pageTitle}}</title>
 
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"/>
@@ -10,7 +10,6 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		
 		<!-- Favicon -->
-		
 		<link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
@@ -25,13 +24,14 @@
 		<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
 		<link rel="manifest" href="favicon/manifest.json">
-		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-		<meta name="theme-color" content="#ffffff">
+		<meta name="msapplication-TileColor" content="#ffffff"/>
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+		<meta name="theme-color" content="#ffffff"/>
 		<!-- fin favicon --> 
 
 
 		<!-- JS -->
+<<<<<<< HEAD
 		<script type="text/javascript" src="lib/jquery.js"></script>		
 		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript" src="bower_components/angular/angular.js"></script>
@@ -41,12 +41,33 @@
 		<script type="text/javascript" src="view-login/login.js"></script>
 		<script type="text/javascript" src="components/services.js"></script>
 
+=======
+                    <!-- Librairies -->
+                    <script type="text/javascript" src="lib/jquery.js"></script>		
+                    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+                    <!-- Angular -->
+                    <script src="bower_components/angular/angular.js"></script>
+                    <script src="bower_components/angular-route/angular-route.js"></script>
+                    <script src="bower_components/angular-i18n/angular-locale_fr-fr.js"></script>
+                    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+                    <!-- Modules -->
+                    <script type="text/javascript" src="app.js"></script>
+                    <script type="text/javascript" src="js/script.js"></script>
+                    <script type="text/javascript" src="view-list/moduleList.js"></script>
+                    <script type="text/javascript" src="view-single/moduleSingle.js"></script>
+                    <script type="text/javascript" src="components/service.js"></script>
+>>>>>>> 9d76744f9a984e16d7e1b093cfacf940a3884d6b
 	</head>
 
 
 
 
+<<<<<<< HEAD
 	<body ng-view>
+=======
+	<body class="container-fluid">
+		<ng-view></ng-view>
+>>>>>>> 9d76744f9a984e16d7e1b093cfacf940a3884d6b
 	</body>
 
 

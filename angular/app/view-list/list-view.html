@@ -10,7 +10,7 @@
 				<input type="text" class="form-control" id="{{critere['key']}}-form" placeholder="{{critere.label}}" ng-model="listeCtrl.state.text[critere['key']]" ng-minlength="2">
 			</div>
 
-			
+
 			<div class="col-xs-12 col-sm-6 col-md-4 form-group" ng-repeat="critere in listeCtrl.fields | filter:{critere:'select'}">
 				<label for="{{critere['key']}}-form">{{critere.label}}</label>
 				<select class="form-control" id="{{critere['key']}}-form" ng-model="listeCtrl.state.tri[critere['key']]" ng-options="option.type as option.label for option in listeCtrl.order"/>
@@ -20,7 +20,7 @@
 			
 	<section class="row">
 	<h3>Résultats</h3>
-		<table id="myTable" class="col-sm-12 hidden-xs" >
+		<table id="myTable" class="col-sm-12 hidden-xs table-hover table table-striped" >
 			<thead>
 				<tr>
 					<th ng-repeat="type in listeCtrl.fields">
@@ -28,7 +28,7 @@
 					</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="cursor: pointer;">
 				<tr ng-repeat="elt in listeCtrl.list | filter: listeCtrl.state.text
 				 									 | filter: listeCtrl.state.tri"  
 				 									 ng-click="listeCtrl.view(elt.id)">
@@ -45,8 +45,7 @@
 		<ul class="liste visible-xs col-xs-12">
 			<li ng-repeat="elt in listeCtrl.list">
 				<p ng-repeat="type in listeCtrl.fields"> 
-					<strong>{{type.label}}  : </strong>{{elt[type.key]}}<br> 
-				</p>
+					<strong>{{type.label}}  : </strong>{{elt[type.key]}}<br> 				</p>
 			</li>
 		</ul>
 </main>

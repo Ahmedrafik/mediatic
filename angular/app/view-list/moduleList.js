@@ -15,38 +15,40 @@ angular.module('moduleList', [])
 
 	})
 
-	.controller('mediaListCtrl', function($rootScope,listeMediaService, $location, state, typeMedia) {
-		var controller = this;
-		$rootScope.pageTitle = 'Liste des médias';
-                $rootScope.classType = 'adherents';
+	.controller('mediaListCtrl', function($rootScope,listeMediaService, $location, state, typeMedia, connectService) {
+		console.log(connectService.isConnected())
+		if(connectService.isConnected()){
+			var controller = this;
+			$rootScope.pageTitle = 'Liste des médias';
+	                $rootScope.classType = 'medias';
 
-		controller.fields = [
-			{'key':'titre','label':'Titre', 'critere':'input'},
-			{'key':'type','label':'Type','critere':'select'}, 
-			{'key':'auteur','label':'Auteur', 'critere':'input'}
-		];
-		
+			controller.fields = [
+				{'key':'titre','label':'Titre', 'critere':'input'},
+				{'key':'type','label':'Type','critere':'select'}, 
+				{'key':'auteur','label':'Auteur', 'critere':'input'}
+			];
+			
+			controller.list = [];
+			controller.state = state('/media', {tri: typeMedia.default});
+			controller.order = typeMedia.list;
 
-		controller.list = [];
-		controller.state = state('/media', {tri: typeMedia.default});
-		controller.order = typeMedia.list;
+			listeMediaService.getList().then(function (data) {
+				controller.list = data;
+			});
 
-		console.log('controller', controller);
-
-		listeMediaService.getList().then(function (data) {
-			controller.list = data;
-		});
-
-		controller.view = function(id){
-			$location.path('/media/{{id}}');
+			controller.view = function(id){
+				$location.path('/media/{{id}}');
+			}
+		}else{
+			//$location.path('/login');
 		}
 	})
 
 
-	.controller('adherentListCtrl', function($rootScope,listeAdherentService, $location) {
+	.controller('adherentListCtrl', function($rootScope,listeAdherentService, $location, state, connectService) {
 		var controller = this;
 		$rootScope.pageTitle = 'Liste des adhérents';
-                $rootScope.classType = 'medias'; 
+        $rootScope.classType = 'adherents'; 
                 
 		controller.fields = [
 			{'key':'id','label':'ID'},

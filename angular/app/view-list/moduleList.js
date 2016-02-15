@@ -17,10 +17,8 @@ angular.module('moduleList', [])
 
 	.controller('mediaListCtrl', function($rootScope,listeMediaService, $location) {
 		var controller = this;
-		var bd = angular.element(document).find('body');
 		$rootScope.pageTitle = 'Liste des médias';
-		bd.removeClass("adherents");		
-		bd.addClass('medias');
+                $rootScope.classType = 'adherents';
 
 		controller.fields = [
 			{'key':'titre','label':'Titre'},
@@ -39,10 +37,30 @@ angular.module('moduleList', [])
 	})
 
 
-	.controller('adherentListCtrl', function($rootScope,listeAdherentService) {
+	.controller('adherentListCtrl', function($rootScope,listeAdherentService, $location) {
 		var controller = this;
-		var bd = angular.element(document).find('body');
 		$rootScope.pageTitle = 'Liste des adhérents';
-		bd.removeClass("medias");		
-		bd.addClass('adherents');
+                $rootScope.classType = 'medias';
+                
+		controller.fields = [
+			{'key':'id','label':'ID'},
+			{'key':'nom_prenom','label':'Nom et prénom'},
+			{'key':'date_naissance','label':'Date de naissnance'},
+                        {'key':'cotisation_correcte','label':'Cotisation à jour'},
+                        {'key':'nombre_media','label':'Nombre de médias'}
+		];
+                
+		controller.list = [];
+		listeAdherentService.getList().then(function (data) {
+			controller.list = data;
+                        /* Création des champs d'affichage */
+                        angular.forEach(controller.list,function(obj){
+                            obj.nom_prenom = obj.nom.toUpperCase() + " " + obj.prenom;
+                            /* TODO : Formater date ici */
+                        });
+		});      
+                
+ 		controller.view = function(id){
+			$location.path('/adherent/{{id}}');
+		}
 	})

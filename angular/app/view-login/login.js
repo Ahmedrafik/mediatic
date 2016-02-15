@@ -21,10 +21,30 @@ angular.module('logMod', ['ngRoute', 'services'])
 				$location.path('/login');	
 			});		
 		}
-		
-
-
-
 	})
+	.directive('resize', function ($window) {
+        return function (scope, element) {
+            var w = angular.element($window);
+                    var f = angular.element(document).find("body");
+            scope.getWindowDimensions = function () {
+                return {
+                    'h': w.height()
+                };
+            };
+            scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {
+                scope.windowHeight = newValue.h;
+
+                f.style = function () {
+                    return {
+                        'margin-top': (newValue.h - f.height()) + 'px',
+                    };
+                };
+            }, true);
+
+            w.bind('resize', function () {
+                scope.$apply();
+            });
+        }
+    })
 
 	/* login = admin && mdp = istrateur*/

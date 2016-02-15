@@ -15,12 +15,18 @@ angular.module('moduleList', [])
 
 	})
 
-	.controller('mediaListCtrl', function($rootScope,listeMediaService, $location, state, typeMedia, connectService) {
-		console.log(connectService.isConnected())
-		if(connectService.isConnected()){
-			var controller = this;
-			$rootScope.pageTitle = 'Liste des médias';
-	                $rootScope.classType = 'medias';
+
+	.controller('mediaListCtrl', function($rootScope, listeMediaService, $location, state, typeMedia) {
+		var controller = this;
+		$rootScope.pageTitle = 'Liste des médias';
+                $rootScope.classType = 'adherents';
+
+		controller.fields = [
+			{'key':'titre','label':'Titre', 'critere':'input'},
+			{'key':'type','label':'Type','critere':'select'}, 
+			{'key':'auteur','label':'Auteur', 'critere':'input'}
+		];
+		
 
 			controller.fields = [
 				{'key':'titre','label':'Titre', 'critere':'input'},
@@ -41,6 +47,8 @@ angular.module('moduleList', [])
 			}
 		}else{
 			//$location.path('/login');
+		controller.view = function(id){
+			$location.path('/media/' + id);
 		}
 	})
 
@@ -70,6 +78,6 @@ angular.module('moduleList', [])
 		});      
                 
  		controller.view = function(id){
-			$location.path('/adherent/{{id}}');
+			$location.path('/adherent/' + id);
 		}
 	})

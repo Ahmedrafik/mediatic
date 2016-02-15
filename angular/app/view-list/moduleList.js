@@ -15,7 +15,7 @@ angular.module('moduleList', [])
 
 	})
 
-	.controller('mediaListCtrl', function($rootScope,listeMediaService, $location) {
+	.controller('mediaListCtrl', function($rootScope,listeMediaService, $location, state, triType) {
 		var controller = this;
 		var bd = angular.element(document).find('body');
 		$rootScope.pageTitle = 'Liste des médias';
@@ -29,6 +29,10 @@ angular.module('moduleList', [])
 		];
 		
 		controller.list = [];
+		controller.state = state('/media', {tri: triType.default});
+		controller.order = triType.list;
+
+
 		listeMediaService.getList().then(function (data) {
 			controller.list = data;
 		});

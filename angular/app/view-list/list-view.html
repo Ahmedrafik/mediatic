@@ -5,26 +5,18 @@
 	<section id="formulaire" class="row">
 	<h3>Recherche de documents</h3>			
 		<form class ="list-form container" method="GET" action="template_list.html">
-			<div class="col-xs-12 col-sm-6 col-md-4 form-group">
-				<label for="title">Titre</label>
-				<input type="text" class="form-control" id="title" placeholder="Entrer un titre" ng-model="listeCtrl.state.text.titre" ng-minlength="2">
+			<div class="col-xs-12 col-sm-6 col-md-4 form-group" ng-repeat="critere in listeCtrl.fields | filter:{critere:'input'}">
+				<label for="{{critere['key']}}-form">{{critere.label}}</label>
+				<input type="text" class="form-control" id="{{critere['key']}}-form" placeholder="{{critere.label}}" ng-model="listeCtrl.state.text[critere['key']]" ng-minlength="2">
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4 form-group">
-				<label for="author">Nom de l'auteur</label>
-				<input type="text" class="form-control col-xs-8" id="author" placeholder="Entrer un titre" ng-model="listeCtrl.state.text.auteur" ng-minlength="2">
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4 form-group">
-				<label for="type">Type de media</label>
-				<select id="type" class="form-control col-xs-8" ng-model="listeCtrl.state.tri" ng-options="option.label for option in listeCtrl.order">
-				</select>
-			</div>
-			<div class="col-xs-offset-3 col-xs-6 col-sm-offset-9 col-sm-3">
-				<input class="col-xs-12 btn btn-default" type="submit" value="Rechercher">
+
+			
+			<div class="col-xs-12 col-sm-6 col-md-4 form-group" ng-repeat="critere in listeCtrl.fields | filter:{critere:'select'}">
+				<label for="{{critere['key']}}-form">{{critere.label}}</label>
+				<select class="form-control" id="{{critere['key']}}-form" ng-model="listeCtrl.state.tri[critere['key']]" ng-options="option.type as option.label for option in listeCtrl.order"/>
 			</div>
 		</form>
-			
 	</section>
-{{listeCtrl.state.tri}}
 			
 	<section class="row">
 	<h3>Résultats</h3>
@@ -38,10 +30,11 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="elt in listeCtrl.list | filter: listeCtrl.state.text
-				 									 | filter: {type:listeCtrl.state.tri.type}"  
+				 									 | filter: listeCtrl.state.tri"  
 				 									 ng-click="listeCtrl.view(elt.id)">
-					<td ng-repeat="type in listeCtrl.fields" >
+					<td ng-repeat="type in listeCtrl.fields">
 						{{elt[type.key]}}
+
 					</td>
 				</tr>
 			</tbody>

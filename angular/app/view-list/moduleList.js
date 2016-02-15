@@ -15,21 +15,23 @@ angular.module('moduleList', [])
 
 	})
 
-	.controller('mediaListCtrl', function($rootScope,listeMediaService, $location, state, triType) {
+	.controller('mediaListCtrl', function($rootScope,listeMediaService, $location, state, typeMedia) {
 		var controller = this;
 		$rootScope.pageTitle = 'Liste des médias';
                 $rootScope.classType = 'adherents';
 
 		controller.fields = [
-			{'key':'titre','label':'Titre'},
-			{'key':'type','label':'Type'},
-			{'key':'auteur','label':'Auteur'}
+			{'key':'titre','label':'Titre', 'critere':'input'},
+			{'key':'type','label':'Type','critere':'select'}, 
+			{'key':'auteur','label':'Auteur', 'critere':'input'}
 		];
 		
-		controller.list = [];
-		controller.state = state('/media', {tri: triType.default});
-		controller.order = triType.list;
 
+		controller.list = [];
+		controller.state = state('/media', {tri: typeMedia.default});
+		controller.order = typeMedia.list;
+
+		console.log('controller', controller);
 
 		listeMediaService.getList().then(function (data) {
 			controller.list = data;
@@ -44,14 +46,15 @@ angular.module('moduleList', [])
 	.controller('adherentListCtrl', function($rootScope,listeAdherentService, $location) {
 		var controller = this;
 		$rootScope.pageTitle = 'Liste des adhérents';
-                $rootScope.classType = 'medias';
+                $rootScope.classType = 'medias'; 
                 
 		controller.fields = [
 			{'key':'id','label':'ID'},
-			{'key':'nom_prenom','label':'Nom et prénom'},
+			{'key':'nom_prenom','label':'Nom et prénom', 'critere': 'input'},
 			{'key':'date_naissance','label':'Date de naissnance'},
-                        {'key':'cotisation_correcte','label':'Cotisation à jour'},
-                        {'key':'nombre_media','label':'Nombre de médias'}
+            {'key':'cotisation_correcte','label':'Cotisation à jour'},
+            {'key':'nombre_media','label':'Nombre de médias'},
+
 		];
                 
 		controller.list = [];

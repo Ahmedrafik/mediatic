@@ -15,7 +15,7 @@ angular.module('moduleList', [])
 
 	})
 
-	.controller('mediaListCtrl', function($rootScope,listeMediaService, $location, state, typeMedia) {
+	.controller('mediaListCtrl', function($rootScope, listeMediaService, $location, state, typeMedia) {
 		var controller = this;
 		$rootScope.pageTitle = 'Liste des médias';
                 $rootScope.classType = 'adherents';
@@ -38,7 +38,7 @@ angular.module('moduleList', [])
 		});
 
 		controller.view = function(id){
-			$location.path('/media/{{id}}');
+			$location.path('/media/' + id);
 		}
 	})
 
@@ -68,6 +68,6 @@ angular.module('moduleList', [])
 		});      
                 
  		controller.view = function(id){
-			$location.path('/adherent/{{id}}');
+			$location.path('/adherent/' + id);
 		}
 	})

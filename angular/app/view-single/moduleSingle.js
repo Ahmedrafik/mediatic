@@ -1,4 +1,4 @@
-angular.module('moduleSingle', ['services', 'ngRoute'])
+angular.module('moduleSingle', ['services', 'ngRoute', 'filtres'])
 	.config(function ($routeProvider) {	
 		$routeProvider.when('/media/:id', {
 			templateUrl: 'view-single/single-view.html',
@@ -15,35 +15,48 @@ angular.module('moduleSingle', ['services', 'ngRoute'])
 
 	})
 
-	.controller('mediaSingleCtrl', function($rootScope, $routeParams, singleMediaService) {
+	.controller('mediaSingleCtrl', function($rootScope, $routeParams, singleMediaService, typeMedia) {
 		var controller = this;
-		$rootScope.pageTitle = 'Medias';
+		$rootScope.classType = "medias";
+		$rootScope.classEdit = "consultation";
+
 		
 		singleMediaService.getMedia($routeParams.id)
 			.then(function (data) {
+				
 				controller.media = data;
 				$rootScope.pageTitle = controller.media.titre;
-
-				console.log(controller.media);
 			}, function (error) {
 				controller.error = error;
 			});
-
 		$rootScope.pageTitle = 'chargement en  cours';
 
+		
 
+		controller.modify = function(){
+			$rootScope.classEdit = 'edition';
+			controller.typeOptions = [];
+			angular.forEach(typeMedia.list, function(itemType){
+				controller.typeOptions.push(itemType.type);
+			});
+		}
 
-		/*var bd = angular.element(document).find('body');
-		$rootScope.pageTitle = 'Média : ' + controller.media.titre;
-		bd.removeClass("adherents");		
-		bd.addClass('medias');*/
+		controller.save = function(){
+			$rootScope.classEdit = 'consultation';
+			singleMediaService.modifMedia(controller.media).then(function(mediaUpdatedByServer){
+				controller.media = mediaUpdatedByServer;
+				$rootScope.pageTitle = controller.media.titre;
+			});
+		}
+
+		
+		
 	})
 
 
 	.controller('adherentSingleCtrl', function($rootScope) {
 		var controller = this;
 		$rootScope.pageTitle = 'Adherent';
-
 		var bd = angular.element(document).find('body');
 		$rootScope.pageTitle = 'Adhérent : ' + toUpper(controller.adherent.nom) + ' ' + controller.adherent.prenom;
 		bd.removeClass("medias");		

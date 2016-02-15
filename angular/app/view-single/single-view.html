@@ -1,94 +1,72 @@
 <main>
-	<a href="#NOLINK" class="retour" data-search="author='tom'&editeur='rambla'"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-backward fa-stack-1x fa-inverse"></i></span> Retour à la recherche</a>
-	<h2>{{pageTitle}}</h2>
-		<section id="consultation" class="row only-view">
-			<div class="col-xs-12 col-md-6 col-lg-4 ">
-			<h3>[TITRE_CATEGORIE 1]</h3>
+	<a href="#NOLINK" class="retour"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-backward fa-stack-1x fa-inverse"></i></span> Retour à la recherche</a>
+	<h2>{{singleCtrl.media.titre}}</h2>
+		<section class="row only-view">
+			<div class="col-xs-12 col-md-2 col-lg-1">
+				<img ng-src="{{singleCtrl.media.img}}">
+			</div>
+			<div class="col-xs-12 col-md-10 col-lg-11">
 				<ul>
-					<li id="dummy1"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefouquoir</span></li>
-					<li id="dummy2"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefourcau</span></li>
-					<li id="dummy3"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefournil</span></li>
-					<li id="dummy4"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefoutoir</span></li>
+					<li>Auteur : {{singleCtrl.media.auteur}}</li>
+					<li>Editeur : {{singleCtrl.media.editeur}}</li>
+					<li>Type : {{singleCtrl.media.type}}</li>
 				</ul>
 			</div>
+			<div class = "col-xs-12 col-md-9">
+				<h3>Emprunteur : </h3>
+				<table>
+					<tr>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Date d'emprunt</th>
+						<th>Date de retour</th>
+					</tr>
 
-			<div class="col-xs-12 col-md-6 col-lg-4 ">
-			<h3>[TITRE_CATEGORIE 2]</h3>
-				<ul>
-					<li id="dummy1"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefouquoir</span></li>
-					<li id="dummy2"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefourcau</span></li>
-					<li id="dummy3"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefournil</span></li>
-					<li id="dummy4"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefoutoir</span></li>
-				</ul>
-			</div>
-			<div class="col-xs-12 col-md-6 col-lg-4 ">
-			<h3>[TITRE_CATEGORIE 3]</h3>
-				<ul>
-					<li id="dummy1"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefouquoir</span></li>
-					<li id="dummy2"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefourcau</span></li>
-					<li id="dummy3"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefournil</span></li>
-					<li id="dummy4"><strong class="col-xs-12 col-md-4">Mon Label : </strong><span class="contenu" class="col-xs-12 col-md-8">Jean Rochefoutoir</span></li>
-				</ul>
+					<tr ng-repeat='emprunteur in singleCtrl.media.emprunteurs'>
+						<td>{{emprunteur.adherent.nom}}</td>
+						<td>{{emprunteur.adherent.prenom}}</td>
+						<td>{{emprunteur.depart}}</td>
+						<td>{{emprunteur.retour}}</td>
+					</tr>
+				</table>
 			</div>					
 		</section>
 
 		<section id="modification" class="row only-edit">
-			<form class="single-form container-fluid" method="POST" action="#">
-				<div class="col-xs-12 col-md-6 col-lg-4 ">
-				<h3>[TITRE_CATEGORIE 1]</h3>
-					<p><label for="dummy1" class="col-xs-12 col-md-4 ">Mon Label :</label><input type="text" class="col-xs-12 col-md-8 form-control" id="dummy1" name="dummy1" value="Jean Rochefoulard"/></p>
-					<p><label for="dummy2" class="col-xs-12 col-md-4">Mon Label :</label><input type="text" class="col-xs-12 col-md-8 form-control" id="dummy1" name="dummy1" value="Jean Rochefoutu"/></p>
-					<p>
-						<label for="dummy3" class="col-xs-12 col-md-4">Mon Label :</label>
-						<select class="col-xs-12 col-md-8 form-control" id="dummy1" name="dummy1"/>
-							<option value="value1">Aucun</option>
-							<option value="value2" select>Sid Marcus</option>
-						</select>
-					</p>
-					<p>
-						<label for="dummy3" class="col-xs-12">Mon Label :</label>
-						<span class="col-xs-6"><input type="checkbox" name="chbtst1" value="t1"/>Rochefoulée</span>
-						<span class="col-xs-6"><input type="checkbox" name="chbtst1" value="t2"/>Rochefootball</span>
+			<form id="formModif" name="formModif" novalidate>
+				<div class="col-offset-1 col-xs-10 col-md-2 col-lg-1">
+					<input type="file" file-model="singleCtrl.media.Img">
 				</div>
-				
-				<div class="col-xs-12 col-md-6 col-lg-4 ">
-				<h3>[TITRE_CATEGORIE 2]</h3>
-					<p><label for="dummy1" class="col-xs-12 col-md-4">Mon Label :</label><input type="text" class="col-xs-12 col-md-8 form-control" id="dummy1" name="dummy1" value="Jean Rochefoulard"/></p>
-					<p><label for="dummy2" class="col-xs-12 col-md-4">Mon Label :</label><input type="text" class="col-xs-12 col-md-8 form-control" id="dummy1" name="dummy1" value="Jean Rochefoutu"/></p>
-					<p>
-						<label for="dummy3" class="col-xs-12 col-md-4">Mon Label :</label>
-						<select class="col-xs-12 col-md-8 form-control" id="dummy1" name="dummy1"/>
-							<option value="value1">Aucun</option>
-							<option value="value2" select>Sid Marcus</option>
-						</select>
-					</p>
-					<p>
-						<label for="dummy3" class="col-xs-12">Mon Label :</label>
-						<span class="col-xs-6"><input type="checkbox" name="chbtst1" value="t1"/>Rochefoulée</span>
-						<span class="col-xs-6"><input type="checkbox" name="chbtst1" value="t2"/>Rochefootball</span>
-				</div>
-				
-				<div class="col-xs-12 col-md-6 col-lg-4 ">
-				<h3>[TITRE_CATEGORIE 3]</h3>
-					<p><label for="dummy1" class="col-xs-12 col-md-4">Mon Label :</label><input type="text" class="col-xs-12 col-md-8 form-control" id="dummy1" name="dummy1" value="Jean Rochefoulard"/></p>
-					<p><label for="dummy2" class="col-xs-12 col-md-4">Mon Label :</label><input type="text" class="col-xs-12 col-md-8 form-control" id="dummy1" name="dummy1" value="Jean Rochefoutu"/></p>
-					<p>
-						<label for="dummy3" class="col-xs-12 col-md-4">Mon Label :</label>
-						<select class="col-xs-12 col-md-8 form-control" id="dummy1" name="dummy1"/>
-							<option value="value1">Aucun</option>
-							<option value="value2" select>Sid Marcus</option>
-						</select>
-					</p>
-					<p>
-						<label for="dummy3" class="col-xs-12">Mon Label :</label>
-						<span class="col-xs-6"><input type="checkbox" name="chbtst1" value="t1"/>Rochefoulée</span>
-						<span class="col-xs-6"><input type="checkbox" name="chbtst1" value="t2"/>Rochefootball</span>
+				<div class="col-xs-12 col-md-9 col-lg-10">
+					<ul>
+						<li>Auteur : <input type="text" ng-model="singleCtrl.media.auteur"></li>
+						<li>Editeur : <input type="text" ng-model="singleCtrl.media.editeur"></li>
+						<li>Type : <select ng-model="singleCtrl.media.type" ng-options="option for option in singleCtrl.typeOptions"></select></li>
+					</ul>
 				</div>
 			</form>
+			<div class = "col-xs-12 col-md-9">
+				<h3>Emprunteur : </h3>
+				<table>
+					<tr>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Date d'emprunt</th>
+						<th>Date de retour</th>
+					</tr>
+
+					<tr ng-repeat='emprunteur in singleCtrl.media.emprunteurs'>
+						<td>{{emprunteur.adherent.nom}}</td>
+						<td>{{emprunteur.adherent.prenom}}</td>
+						<td>{{emprunteur.depart}}</td>
+						<td>{{emprunteur.retour}}</td>
+					</tr>
+				</table>
+			</div>					
 		</section>
 
 		<section class="boutons row">
-			<button onclick="uiToggleEdition()" class="only-view col-xs-12 col-sm-4 col-sm-offset-8 col-md-3 col-md-offset-9">Modifier</button>
-			<button onclick="uiSingleEnregistrer()" class="only-edit col-xs-12 col-sm-4 col-sm-offset-8 col-md-3 col-md-offset-9">Enregistrer</button>
+			<button ng-click="singleCtrl.modify()" class="only-view col-xs-12 col-sm-4 col-sm-offset-8 col-md-3 col-md-offset-9">Modifier</button>
+			<button ng-click="singleCtrl.save()" class="only-edit col-xs-12 col-sm-4 col-sm-offset-8 col-md-3 col-md-offset-9">Enregistrer</button>
 		</section>
 </main>

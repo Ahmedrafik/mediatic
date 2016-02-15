@@ -11,6 +11,7 @@ angular.module('logMod', ['ngRoute', 'services'])
 	.controller('loginController', function($routeParams, $rootScope, $scope, $location, connectService){
 		var logCtrl = this;
 		$rootScope.pageTitle = 'Page de Login';
+		$rootScope.classType= 'page-login'
 		logCtrl.connect = function(){
 			console.log($scope.user.login);
 			connectService.connect($scope.user.login, $scope.user.mdp).then(function success(){

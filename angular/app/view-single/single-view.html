@@ -1,5 +1,6 @@
+<div ng-include src="'components/header-view.html'"></div>
 <main>
-	<a href="#NOLINK" class="retour"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-backward fa-stack-1x fa-inverse"></i></span> Retour à la recherche</a>
+	<a href="#{{singleCtrl.url()}}" class="retour"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-backward fa-stack-1x fa-inverse"></i></span> Retour à la recherche</a>
 	<h2>{{singleCtrl.media.titre}}</h2>
 		<section class="row only-view">
 			<div class="col-xs-12 col-md-2 col-lg-1">
@@ -70,3 +71,4 @@
 			<button ng-click="singleCtrl.save()" class="only-edit col-xs-12 col-sm-4 col-sm-offset-8 col-md-3 col-md-offset-9">Enregistrer</button>
 		</section>
 </main>
+<div ng-include src="'components/footer-view.html'"></div>

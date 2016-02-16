@@ -16,13 +16,17 @@ angular.module('logMod', ['ngRoute', 'services'])
 			console.log($scope.user.login);
 			connectService.connect($scope.user.login, $scope.user.mdp).then(function success(){
 				console.log('connect');
-				$location.path('/media');	
+				$location.path('/medias');
+				$rootScope.logout = function(){
+					connectService.disconnect();
+				}
 			}, function error(){
 				$location.path('/login');	
 			});		
 		}
 	})
-	.directive('resize', function ($window) {
+
+	/*.directive('resize', function ($window) {
         return function (scope, element) {
             var w = angular.element($window);
                     var f = angular.element(document).find("body");
@@ -45,6 +49,6 @@ angular.module('logMod', ['ngRoute', 'services'])
                 scope.$apply();
             });
         }
-    })
+    })*/
 
 	/* login = admin && mdp = istrateur*/

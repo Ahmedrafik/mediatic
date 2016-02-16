@@ -1,83 +1,51 @@
-angular.module('moduleList', [])
-	.config(function ($routeProvider) {	
-		$routeProvider.when('/media', {
+angular.module('moduleList', ['moduleDico'])
+	
+	.config(function ($routeProvider, Dictionnary, listeServiceProvider) {	
+		$routeProvider.when(Dictionnary.media.pathList, {
 			templateUrl: 'view-list/list-view.html',
-			controller: 'mediaListCtrl',
-			controllerAs: 'listeCtrl'
-		});
-
-
-		$routeProvider.when('/adherent', {
-			templateUrl: 'view-list/list-view.html',
-			controller: 'adherentListCtrl',
-			controllerAs: 'listeCtrl'
-		});
-
-	})
-
-
-	.controller('mediaListCtrl', function($rootScope, listeMediaService, $location, state, typeMedia) {
-		var controller = this;
-		$rootScope.pageTitle = 'Liste des médias';
-                $rootScope.classType = 'adherents';
-
-		controller.fields = [
-			{'key':'titre','label':'Titre', 'critere':'input'},
-			{'key':'type','label':'Type','critere':'select'}, 
-			{'key':'auteur','label':'Auteur', 'critere':'input'}
-		];
-		
-
-			controller.fields = [
-				{'key':'titre','label':'Titre', 'critere':'input'},
-				{'key':'type','label':'Type','critere':'select'}, 
-				{'key':'auteur','label':'Auteur', 'critere':'input'}
-			];
-			
-			controller.list = [];
-			controller.state = state('/media', {tri: typeMedia.default});
-			controller.order = typeMedia.list;
-
-			listeMediaService.getList().then(function (data) {
-				controller.list = data;
-			});
-
-			controller.view = function(id){
-				$location.path('/media/{{id}}');
+			controller: 'ListCtrl',
+			controllerAs: 'listeCtrl',
+			resolve : {
+				DictionnaryFiltered : function(){return Dictionnary['media'];}
 			}
-		}else{
-			//$location.path('/login');
-		controller.view = function(id){
-			$location.path('/media/' + id);
-		}
+		});
+
+		$routeProvider.when(Dictionnary.adherent.pathList, {
+			templateUrl: 'view-list/list-view.html',
+			controller: 'ListCtrl',
+			controllerAs: 'listeCtrl',
+			resolve : {
+				DictionnaryFiltered : function(){return Dictionnary['adherent'];}
+			}
+		});
+
 	})
 
 
-	.controller('adherentListCtrl', function($rootScope,listeAdherentService, $location, state, connectService) {
-		var controller = this;
-		$rootScope.pageTitle = 'Liste des adhérents';
-        $rootScope.classType = 'adherents'; 
-                
-		controller.fields = [
-			{'key':'id','label':'ID'},
-			{'key':'nom_prenom','label':'Nom et prénom', 'critere': 'input'},
-			{'key':'date_naissance','label':'Date de naissnance'},
-            {'key':'cotisation_correcte','label':'Cotisation à jour'},
-            {'key':'nombre_media','label':'Nombre de médias'},
+	.controller('ListCtrl', function($rootScope, listeService, $location, state, typeMedia, connectService, DictionnaryFiltered, Dictionnary) {
+		
+		// Nota : typeMeda ne sert que dans le cas d'un Controller pour une liste de média.
+		if(connectService.isConnected()==true){
+				var controller = this;
+				$rootScope.pageTitle = DictionnaryFiltered.title;
+	            $rootScope.classType = DictionnaryFiltered.classTypes;
 
-		];
-                
-		controller.list = [];
-		listeAdherentService.getList().then(function (data) {
-			controller.list = data;
-                        /* Création des champs d'affichage */
-                        angular.forEach(controller.list,function(obj){
-                            obj.nom_prenom = obj.nom.toUpperCase() + " " + obj.prenom;
-                            /* TODO : Formater date ici */
-                        });
-		});      
-                
- 		controller.view = function(id){
-			$location.path('/adherent/' + id);
+
+				controller.fields = DictionnaryFiltered.fields;
+				controller.list = [];
+				controller.state = state(DictionnaryFiltered.state, {tri: typeMedia.default});
+				controller.order = typeMedia.list;
+
+
+				listeService.getList(DictionnaryFiltered.type).then(function (data) {
+					controller.list = data;
+				});
+
+				controller.view = function(id){
+					$location.path(DictionnaryFiltered.path + id);
+				}
+
+		}else {
+			$location.path(Dictionnary.commun.pathLogin);
 		}
 	})

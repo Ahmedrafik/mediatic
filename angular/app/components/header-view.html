@@ -1,23 +1,22 @@
 <header class="row">
     <h1>Médiathèque</h1>
-            <div id="logo" class="col-sm-2 hidden-xs"></div>
-            <nav class="col-xs-12 col-sm-10">
-                    <ul class="nav">
-                            <li class="dropdown col-xs-6 col-sm-4"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-film"></i> Médias</a>
-                                    <ul class="dropdown-menu hidden-xs">
-                                            <li><a href="#/media"><i class="fa fa-list"></i> Liste des médias</a></li>
-                                            <li><a href="#/media/new"><i class="fa fa-plus"></i> Ajouter média</a></li>
-                                    </ul>
-                            </li>
-                            <li class="dropdown col-xs-6 col-sm-4"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Adhérents</a>
-                                    <ul class="dropdown-menu hidden-xs">
-                                            <li><a href="#/adherent"><i class="fa fa-list"></i> Liste des adhérents</a></li>
-                                            <li><a href="#/adherent/new"><i class="fa fa-plus"></i> Ajouter adhérent</a></li>
-                                    </ul>
-                            </li>
-
-                            <!--TODO lien de deconnection -->
-                            <li class="col-xs-12 col-sm-4"><a href="#"><i class="fa fa-sign-out"></i> Se déconnecter</a></li>
-                    </ul>				
-            </nav>
+    <div id="logo" class="col-sm-2 hidden-xs"></div>
+    <nav class="col-xs-12 col-sm-10">
+        <ul class="nav">
+            <li class="dropdown col-xs-6 col-sm-4"><a href="#/medias" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-film"></i> Médias</a>
+                <ul class="dropdown-menu hidden-xs">
+                    <li><a href="#/medias"><i class="fa fa-list"></i> Liste des médias</a></li>
+                    <li><a href="#/medias/new"><i class="fa fa-plus"></i> Ajouter média</a></li>
+                </ul>
+            </li>
+            <li class="dropdown col-xs-6 col-sm-4"><a href="#/adherents" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Adhérents</a>
+                <ul class="dropdown-menu hidden-xs">
+                    <li><a href="#/adherents"><i class="fa fa-list"></i> Liste des adhérents</a></li>
+                    <li><a href="#/adherents/new"><i class="fa fa-plus"></i> Ajouter adhérent</a></li>
+                </ul>
+            </li>
+            <li class="col-xs-12 col-sm-4"><a href="" ng-click="logout();"><i class="fa fa-sign-out"></i> Se déconnecter</a>
+            </li>
+        </ul>				
+    </nav>
 </header>

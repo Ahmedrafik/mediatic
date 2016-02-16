@@ -1,5 +1,6 @@
 angular.module('services' , [])
-	.factory('connectService', function($http){
+
+	.factory('connectService', function($http,$location){
 		var connectServ = this;
 		connectServ.connected = false;
 		var url = 'http://192.168.1.14:8080/resource/connexion.login';
@@ -16,39 +17,42 @@ angular.module('services' , [])
 				});
 			},	
 
+			disconnect:function(){
+		   		connectServ.connected = false;
+		   		$location.path('/login');				
+			},
+
 			isConnected : function(){
-				return connectServ.connected;
-			}	
+				console.warn('TODO : a remettre avant MEP');
+				return true;
+//				return connectServ.connected;
+			}
 		}	
 	})
 
-	.factory('listeMediaService', function($http) {
-		/* bouchon : on récupère toute la fausse BDD */
-		var url ='http://192.168.1.14:8080/resource/media.recherche';
-		var promesse = $http.get(url).then(function(response){
-			return response.data;
-		});
+
+
+
+.factory('listeService', function($http, Dictionnary) {
+	
+	
+	var promesseAdherent = $http.get(Dictionnary.adherent.urlRechercheWS).then(function(response) {
+		return response.data;
+	});
+	var promesseMedia = $http.get(Dictionnary.media.urlRechercheWS).then(function(response) {
+		return response.data;
+	});
 
 		return {
-			getList : function() {
-				return promesse;
-				},
-		}; 
-	})
+			getList : function(type) {
+				if(type == Dictionnary.media.type){
+					return promesseMedia;
+				} else {
+					return promesseAdherent;
+				}
+			}
+		};
 
-	.factory('listeAdherentService', function($http) {
-		/* bouchon : on récupère toute la fausse BDD */
-		var url ='http://192.168.1.14:8080/resource/adherent.recherche';
-		var promesse = $http.get(url).then(function(response) {
-			return response.data;
-		});
-
-		return {
-			getList : function() {
-				return promesse;
-				},
-
-		}; 
 	})
 
 	.factory('singleMediaService', function($http){

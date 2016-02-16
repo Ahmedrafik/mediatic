@@ -24,7 +24,7 @@
 			<thead>
 				<tr>
 					<th ng-repeat="type in listeCtrl.fields">
-						<a href="javascript:triTable({type.key}})"><i class="fa fa-sort"></i>{{type.label}}</a>
+						<a href=""><i class="fa fa-sort"></i>{{type.label}}</a>
 					</th>
 				</tr>
 			</thead>
@@ -34,13 +34,11 @@
 				 									 ng-click="listeCtrl.view(elt.id)">
 					<td ng-repeat="type in listeCtrl.fields">
 						{{elt[type.key]}}
-
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		
-		
+
 		<!-- TODO style a refaire pour le format mobile  -->
 		<ul class="liste visible-xs col-xs-12">
 			<li ng-repeat="elt in listeCtrl.list">

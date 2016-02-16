@@ -55,16 +55,16 @@ angular.module('services' , [])
 
 	})
 
-	.factory('singleMediaService', function($http){
+	.factory('singleService', function($http){
 		return {
-			getMedia: function (id) {
+			getData: function (id) {
 
 				var url ='http://192.168.1.14:8080/resource/media.accession';
 				return $http.get(url, {params : {id : id}}).then(function(response) {
 					return response.data;
 				});
 			},
-			modifMedia: function(media){
+			modifData: function(media){
 				var url ='http://192.168.1.14:8080/resource/media.modification';
 				return $http.post(url, media).then(function success(response) {
 					return response.data;

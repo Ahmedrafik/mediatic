@@ -1,16 +1,16 @@
 <div ng-include src="'components/header-view.html'"></div>
 <main>
 	<a href="#{{singleCtrl.url()}}" class="retour"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-backward fa-stack-1x fa-inverse"></i></span> Retour à la recherche</a>
-	<h2>{{singleCtrl.media.titre}}</h2>
+	<h2>{{singleCtrl.data.titre}}</h2>
 		<section class="row only-view">
 			<div class="col-xs-12 col-md-2 col-lg-1">
-				<img ng-src="{{singleCtrl.media.img}}">
+				<img ng-src="{{singleCtrl.data.img}}">
 			</div>
 			<div class="col-xs-12 col-md-10 col-lg-11">
 				<ul>
-					<li>Auteur : {{singleCtrl.media.auteur}}</li>
-					<li>Editeur : {{singleCtrl.media.editeur}}</li>
-					<li>Type : {{singleCtrl.media.type}}</li>
+					<li>Auteur : {{singleCtrl.data.auteur}}</li>
+					<li>Editeur : {{singleCtrl.data.editeur}}</li>
+					<li>Type : {{singleCtrl.data.type}}</li>
 				</ul>
 			</div>
 			<div class = "col-xs-12 col-md-9">
@@ -23,7 +23,7 @@
 						<th>Date de retour</th>
 					</tr>
 
-					<tr ng-repeat='emprunteur in singleCtrl.media.emprunteurs'>
+					<tr ng-repeat='emprunteur in singleCtrl.data.emprunteurs'>
 						<td>{{emprunteur.adherent.nom}}</td>
 						<td>{{emprunteur.adherent.prenom}}</td>
 						<td>{{emprunteur.depart}}</td>
@@ -36,13 +36,13 @@
 		<section id="modification" class="row only-edit">
 			<form id="formModif" name="formModif" novalidate>
 				<div class="col-offset-1 col-xs-10 col-md-2 col-lg-1">
-					<input type="file" file-model="singleCtrl.media.Img">
+					<input type="file" file-model="singleCtrl.data.Img">
 				</div>
 				<div class="col-xs-12 col-md-9 col-lg-10">
 					<ul>
-						<li>Auteur : <input type="text" ng-model="singleCtrl.media.auteur"></li>
-						<li>Editeur : <input type="text" ng-model="singleCtrl.media.editeur"></li>
-						<li>Type : <select ng-model="singleCtrl.media.type" ng-options="option for option in singleCtrl.typeOptions"></select></li>
+						<li>Auteur : <input type="text" ng-model="singleCtrl.data.auteur"></li>
+						<li>Editeur : <input type="text" ng-model="singleCtrl.data.editeur"></li>
+						<li>Type : <select ng-model="singleCtrl.data.type" ng-options="option for option in singleCtrl.typeOptions[0]"></select></li>
 					</ul>
 				</div>
 			</form>
@@ -56,7 +56,7 @@
 						<th>Date de retour</th>
 					</tr>
 
-					<tr ng-repeat='emprunteur in singleCtrl.media.emprunteurs'>
+					<tr ng-repeat='emprunteur in singleCtrl.data.emprunteurs'>
 						<td>{{emprunteur.adherent.nom}}</td>
 						<td>{{emprunteur.adherent.prenom}}</td>
 						<td>{{emprunteur.depart}}</td>

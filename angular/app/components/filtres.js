@@ -10,13 +10,14 @@ angular.module('filtres' , [])
 		}
 	})
 
-
-/* TODO prevoir le cas par cas */ 
-.factory('typeMedia', function() {
-		var list = [{type:'Livre', label:'Filter sur les Livres'},
-		 			{type:'CD', label:'Filter sur les CD'},
-		 			{type:'DVD' , label:'Filter sur les DVD'}
-					];
+.factory('enumSelect', function() {
+		var list = {
+					'type' : [
+						{type:'Livre', label:'Filter sur les Livres'},
+			 			{type:'CD', label:'Filter sur les CD'},
+			 			{type:'DVD' , label:'Filter sur les DVD'}
+					]
+					};
 		return {
 			list:list,
 			default:''

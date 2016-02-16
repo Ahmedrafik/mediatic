@@ -1,81 +1,95 @@
-angular.module('moduleSingle', ['services', 'ngRoute', 'filtres'])
-	.config(function ($routeProvider) {	
-		$routeProvider.when('/medias/:id', {
+angular.module('moduleSingle', ['services', 'ngRoute', 'filtres','moduleDico'])
+	.config(function ($routeProvider, Dictionnary) {	
+		$routeProvider.when(Dictionnary.media.path + '/:id', {
 			templateUrl: 'view-single/single-view.html',
-			controller: 'mediaSingleCtrl',
+			controller: 'SingleController',
 			controllerAs: 'singleCtrl',
 			resolve : {
-				UrlFakeService : function(){
-					return {
-						listUrl : '/medias'
-					}
-				}
+				DictionnaryFiltered : function(){return Dictionnary['media'];}
 			}
 		});
 
-		$routeProvider.when('/adherents/:id', {
+		$routeProvider.when(Dictionnary.adherent.path + '/:id', {
 			templateUrl: 'view-single/single-view.html',
-			controller: 'adherentSingleCtrl',
+			controller: 'SingleController',
 			controllerAs: 'singleCtrl',
 			resolve : {
-				UrlFakeService : function(){
-					return {
-						listUrl : '/adherents'
-					}
-				}
+				DictionnaryFiltered : function(){return Dictionnary['adherent'];}
 			}
 		});
 
 	})
 
-	.controller('mediaSingleCtrl', function($rootScope, $routeParams, singleMediaService,connectService, UrlFakeService) {
+	.controller('SingleController', function($rootScope, $routeParams, singleService
+		,connectService,DictionnaryFiltered, Dictionnary,enumSelect) {
 		if(connectService.isConnected()==true){
 			var controller = this;
-			$rootScope.classType = "medias";
-			$rootScope.classEdit = "consultation";
-			$rootScope.pageTitle = 'Media :';
-			
-			singleMediaService.getMedia($routeParams.id)
+			$rootScope.pageTitle = DictionnaryFiltered.titleSingle;
+			$rootScope.classType = DictionnaryFiltered.classType;
+			$rootScope.classEdit = Dictionnary.commun.classRead;
+
+			singleService.getData($routeParams.id)
 				.then(function (data) {
-					controller.media = data;
-					$rootScope.pageTitle = 'Media : ' + controller.media.titre;
+					controller.data = data;
+					$rootScope.pageTitle = DictionnaryFiltered.titleSingle + controller.data[DictionnaryFiltered.titre];
 				}, function (error) {
 					controller.error = error;
 				});
 
 			controller.modify = function(){
-				$rootScope.classEdit = 'edition';
+				$rootScope.classEdit = Dictionnary.commun.classWrite;
+
+				// bout de code trod4rk
+				var selectList = []; // Liste des champs comportant un select
+				angular.forEach(DictionnaryFiltered.fields,function(field){
+					if('select'==field.critere)
+					{
+						selectList.push(field['key']);
+					}
+				});
+				// Je recupere les champs de l'element (media ou adherent) qui sont dans la liste des select
+
 				controller.typeOptions = [];
-				angular.forEach(typeMedia.list, function(itemType){
-					controller.typeOptions.push(itemType.type);
-				});
+				var tempOptions; // Sous niveau, temporaire.
+				angular.forEach(this.data,function(fieldElement,keyField){
+					if(selectList.indexOf(keyField)!=-1){ /* Je vérifie que mon champ est un select */
+
+						tempOptions = []; // temporaire : je stocke l'ensemble de l'enum
+						console.log(keyField);
+						angular.forEach(enumSelect.list[keyField], function(itemType){
+							tempOptions.push(itemType.type);
+						});						
+						controller.typeOptions.push(tempOptions);
+						console.log(controller.typeOptions);
+					}
+				});	
+				console.log(controller.typeOptions);
+				//console.log(controller.typeOptions);
+
+				// controller.typeOptions = [];
+				// angular.forEach(enumSelect.list, function(itemType){
+				// 	controller.typeOptions.push(itemType.type);
+				// });
 			}
 
-			
-			controller.url = function() {
-				return UrlFakeService.listUrl;
-			}
 
 
-			controller.save = function(){
-				$rootScope.classEdit = 'consultation';
-				singleMediaService.modifMedia(controller.media).then(function(mediaUpdatedByServer){
-					controller.media = mediaUpdatedByServer;
-					$rootScope.pageTitle = 'Media : ' + controller.media.titre;
-				});
+
+			// controller.save = function(){
+			// 	$rootScope.classEdit = 'consultation';
+			// 	singleMediaService.modifMedia(controller.data).then(function(dataUpdatedByServer){
+			// 		controller.data = mediaUpdatedByServer;
+			// 		$rootScope.pageTitle = 'Media : ' + controller.data.titre;
+			// 	});
+			// }
+
+
+			controller.url = function(){
+				return DictionnaryFiltered.pathList;
 			}
+
 
 		}else{
-			$location.path('/login');		
+			$location.path(Dictionnary.commun.pathLogin);
 		}
 	})
-
-
-	.controller('adherentSingleCtrl', function($rootScope, $routeParams, singleAdherentService, UrlFakeService) {
-		/* TODO v*/ 
-
-			controller.url = function() {
-				return UrlFakeService.listUrl;
-			}
-
-	});

@@ -17,12 +17,14 @@ angular.module('moduleDico', [])
 				path : '/media',
 				pathList : '/medias',
 				/* URL */
-				urlRechercheWS :  'http://192.168.1.14:8080/resource/media.recherche'
+				urlRechercheWS :  'http://localhost:8080/resource/media.recherche',
+				urlAccessionWS : 'http://localhost:8080/resource/media.accession',
+				urlModificationWS : 'http://localhost:8080/resource/media.modification'
 			},
 
 			"adherent":{
 				/* label */
-				titleList :'Liste des adherents',
+				titleList :'Liste des adhérents',
 				titleSingle:'Adhérent : ',
 				/* technique */
 				classType : 'adherents',
@@ -41,13 +43,19 @@ angular.module('moduleDico', [])
 					path : '/adherent',
 					pathList : '/adherents',
 					/* externe */
-					urlRechercheWS :  'http://192.168.1.14:8080/resource/adherent.recherche'
-			},
+					urlRechercheWS :  'http://localhost:8080/resource/adherent.recherche',
+					urlAccessionWS : 'http://localhost:8080/resource/adherent.accession',
+					urlModificationWS : 'http://localhost:8080/resource/adherent.modification'
+			},		
 			"commun" : {
+				/* label */
+				titleLogin : 'Page de login',
 				/* technique  */
 				classRead : 'consultation',
 				classWrite: 'edition',
+				pathLogin : '/login',
+				limitByPage : 10,
 				/* URL */
-				pathLogin : '/login'
+				urlLoginWS : 'http://localhost:8080/resource/connexion.login'
 				}
 			})

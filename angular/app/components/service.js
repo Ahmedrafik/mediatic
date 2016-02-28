@@ -1,9 +1,9 @@
-angular.module('services' , [])
+angular.module('services' , ['moduleDico'])
 
-	.factory('connectService', function($http,$location){
+	.factory('connectService', function($http,$location,Dictionnary){
 		var connectServ = this;
 		connectServ.connected = false;
-		var url = 'http://192.168.1.14:8080/resource/connexion.login';
+		var url = Dictionnary['commun']['urlLoginWS'];
 		return {
 			connect : function(log, pass){
 				var data ={
@@ -18,8 +18,9 @@ angular.module('services' , [])
 			},	
 
 			disconnect:function(){
-		   		connectServ.connected = false;
-		   		$location.path('/login');				
+		   		connectServ.connected = false; 		
+		   		$location.path(Dictionnary['commun']['pathLogin']);	
+
 			},
 
 			isConnected : function(){
@@ -32,15 +33,18 @@ angular.module('services' , [])
 
 
 
-
+/* numPage correspond à ma page courante */
 .factory('listeService', function($http, Dictionnary) {
 	
 	
 	var promesseAdherent = $http.get(Dictionnary.adherent.urlRechercheWS).then(function(response) {
-		return response.data;
+		response.nbPages = 5; /* bouchon,bouchon, bouchon */
+		return response;
 	});
 	var promesseMedia = $http.get(Dictionnary.media.urlRechercheWS).then(function(response) {
-		return response.data;
+		/* BOUCHON : j'injecte la variable de pagination */
+		response.nbPages = 5; /* bouchon,bouchon, bouchon */
+		return response;
 	});
 
 		return {
@@ -54,19 +58,41 @@ angular.module('services' , [])
 		};
 
 	})
+	.factory('makePagination',function(pageActive,nbPages){
+		var tabPagination = [];
+		var i;
+		// Ici sera fait la pagination. Peut-être.
+		// Avant la page active
+		for(i=pageActive-3;i<pageActive+3 || i<nbPages;i++)
+		{
+			tabPagination.push(i);
+		}
+		
+		return tabPagination;
+	})
 
-	.factory('singleService', function($http){
+	.factory('singleService', function($http,Dictionnary){
 		return {
-			getData: function (id) {
-
-				var url ='http://192.168.1.14:8080/resource/media.accession';
+			getData: function (id,type) {
+				var url;
+				if(type == Dictionnary.media.type){
+					url = Dictionnary.media.urlAccessionWS + "?id =" + id;
+				} else {
+					url = Dictionnary.adherent.urlAccessionWS + "?id =" + id;
+				}
+				
 				return $http.get(url, {params : {id : id}}).then(function(response) {
 					return response.data;
 				});
 			},
-			modifData: function(media){
-				var url ='http://192.168.1.14:8080/resource/media.modification';
-				return $http.post(url, media).then(function success(response) {
+			modifData: function(genericObject){
+				var url;
+				if(type == Dictionnary.media.type){
+					url = Dictionnary.media.urlModificationWS;
+				} else {
+					url = Dictionnary.adherent.urlModificationWS;
+				}
+				return $http.post(url, genericObject).then(function success(response) {
 					return response.data;
 				});
 			}

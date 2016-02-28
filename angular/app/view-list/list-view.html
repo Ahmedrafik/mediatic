@@ -3,7 +3,7 @@
 	<h2>{{pageTitle}}</h2>		
 	
 	<section id="formulaire" class="row">
-	<h3>Recherche de documents</h3>			
+	<h3>Recherche</h3>			
 		<form class ="list-form container" method="GET" action="template_list.html">
 			<div class="col-xs-12 col-sm-6 col-md-4 form-group" ng-repeat="critere in listeCtrl.fields | filter:{critere:'input'}">
 				<label for="{{critere['key']}}-form">{{critere.label}}</label>
@@ -18,7 +18,7 @@
 		</form>
 	</section>
 			
-	<section class="row">
+	<section class="row text-center">
 	<h3>Résultats</h3>
 		<table id="myTable" class="col-sm-12 hidden-xs table-hover table table-striped" >
 			<thead>
@@ -38,7 +38,9 @@
 				</tr>
 			</tbody>
 		</table>
-
+		<ul class="pagination pagination-lg text-center">
+			<li ng-repeat='i in [1, 2, 3, 4]' ng-class="{'active': i == {{currentPage}}}"><a href="#{{pathList}}?p={{i}}">{{i}}</a></li>
+		</ul>		
 		<!-- TODO style a refaire pour le format mobile  -->
 		<ul class="liste visible-xs col-xs-12">
 			<li ng-repeat="elt in listeCtrl.list">
@@ -46,5 +48,6 @@
 					<strong>{{type.label}}  : </strong>{{elt[type.key]}}<br> 				</p>
 			</li>
 		</ul>
+	</section>
 </main>
 <div ng-include src="'components/footer-view.html'"></div>

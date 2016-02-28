@@ -1,7 +1,7 @@
 <div ng-include src="'components/header-view.html'"></div>
 <main>
 	<a href="#{{singleCtrl.url()}}" class="retour"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-backward fa-stack-1x fa-inverse"></i></span> Retour à la recherche</a>
-	<h2>{{singleCtrl.data.titre}}</h2>
+	<h2>{{pageTitle}}</h2>
 		<section class="row only-view">
 			<div class="col-xs-12 col-md-2 col-lg-1">
 				<img ng-src="{{singleCtrl.data.img}}">

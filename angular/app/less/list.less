@@ -3,10 +3,62 @@ body{
 		.list-form{
 			background-color: @coloradherents;
 		}
+		.pagination
+		{
+			li
+			{
+				&.active{
+				 	a{
+						background-color:@coloradherents;
+						border-color:@coloradherents;
+						color:white;
+						&:hover
+						{
+							color:white;
+							background-color:@coloradherents;
+						}
+					}
+				}
+				a{
+					color:@coloradherents;
+					&:hover
+					{
+						color:@coloradherentsDark;
+						background-color:@coloradherentsLighter;
+					}
+				}
+			}	
+		}
 	}
 	&.medias{
 		.list-form{
 			background-color: @colorMedia;
+		}
+		.pagination
+		{
+			li
+			{
+				&.active{
+				 	a{
+						background-color:@colorMedia;
+						border-color:@colorMedia;
+						color:white;
+						&:hover
+						{
+							color:white;
+							background-color:@colorMedia;
+						}
+					}
+				}
+				a{
+					color:@colorMedia;
+					&:hover
+					{
+						color:@colorMediaDark;
+						background-color:@colorMediaLighter;
+					}
+				}
+			}	
 		}
 	}
 

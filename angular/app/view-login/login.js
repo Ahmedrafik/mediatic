@@ -1,54 +1,27 @@
 'use strict'
 
-angular.module('logMod', ['ngRoute', 'services'])
-	.config(function($routeProvider){
-		$routeProvider.when('/login', {
+angular.module('logMod', ['ngRoute', 'services','moduleDico'])
+	.config(function($routeProvider,Dictionnary){
+		$routeProvider.when(Dictionnary.commun.pathLogin, {
 			templateUrl : 'view-login/login-view.html',
 			controller : 'loginController',
 			controllerAs : 'logCtrl'
 		});
 	})
-	.controller('loginController', function($routeParams, $rootScope, $scope, $location, connectService){
+	.controller('loginController', function($routeParams, $rootScope, $scope, $location, connectService,Dictionnary){
 		var logCtrl = this;
-		$rootScope.pageTitle = 'Page de Login';
+		$rootScope.pageTitle = Dictionnary.commun.titleLogin;
 		$rootScope.classType= 'page-login'
 		logCtrl.connect = function(){
 			console.log($scope.user.login);
 			connectService.connect($scope.user.login, $scope.user.mdp).then(function success(){
 				console.log('connect');
-				$location.path('/medias');
+				$location.path(Dictionnary.media.pathList);
 				$rootScope.logout = function(){
 					connectService.disconnect();
 				}
 			}, function error(){
-				$location.path('/login');	
+				$location.path(Dictionnary.commun.pathLogin);	
 			});		
 		}
 	})
-
-	/*.directive('resize', function ($window) {
-        return function (scope, element) {
-            var w = angular.element($window);
-                    var f = angular.element(document).find("body");
-            scope.getWindowDimensions = function () {
-                return {
-                    'h': w.height()
-                };
-            };
-            scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {
-                scope.windowHeight = newValue.h;
-
-                f.style = function () {
-                    return {
-                        'margin-top': (newValue.h - f.height()) + 'px',
-                    };
-                };
-            }, true);
-
-            w.bind('resize', function () {
-                scope.$apply();
-            });
-        }
-    })*/
-
-	/* login = admin && mdp = istrateur*/

@@ -1,7 +1,7 @@
 angular.module('moduleList', ['moduleDico'])
 	
 	.config(function ($routeProvider, Dictionnary, listeServiceProvider) {	
-		$routeProvider.when(Dictionnary.media.pathList, {
+		$routeProvider.when(Dictionnary.media.pathList , {
 			templateUrl: 'view-list/list-view.html',
 			controller: 'ListController',
 			controllerAs: 'listeCtrl',
@@ -9,7 +9,6 @@ angular.module('moduleList', ['moduleDico'])
 				DictionnaryFiltered : function(){return Dictionnary['media'];}
 			}
 		});
-
 		$routeProvider.when(Dictionnary.adherent.pathList, {
 			templateUrl: 'view-list/list-view.html',
 			controller: 'ListController',
@@ -28,9 +27,10 @@ angular.module('moduleList', ['moduleDico'])
 		// Nota : typeMeda ne sert que dans le cas d'un Controller pour une liste de média.
 		if(connectService.isConnected()==true){
 				var controller = this;
-				$rootScope.pageTitle = DictionnaryFiltered.titleListe;
+				$rootScope.pageTitle = DictionnaryFiltered.titleList;
 	            $rootScope.classType = DictionnaryFiltered.classType;
-
+	            $rootScope.pathList = DictionnaryFiltered.pathList;
+	            $rootScope.currentPage = ($location.search()['p']) ? $location.search()['p'] : 1;
 
 				controller.fields = DictionnaryFiltered.fields;
 				controller.list = [];
@@ -39,7 +39,7 @@ angular.module('moduleList', ['moduleDico'])
 
 
 				listeService.getList(DictionnaryFiltered.type).then(function (data) {
-					controller.list = data;
+					controller.list = data.data;
 				});
 
 				controller.view = function(id){

@@ -4,16 +4,16 @@
 1 verbose cli   'start' ]
 2 info using npm@1.4.14
 3 info using node@v0.10.29
-4 error Error: ENOENT, open 'c:\Users\ASUS GAMING\Documents\Développpements\mediatic\package.json'
+4 error Error: ENOENT, open 'c:\Users\ASUS GAMING\Desktop\TPs formation\mediatic\angular\app\package.json'
 5 error If you need help, you may report this *entire* log,
 5 error including the npm and node versions, at:
 5 error     <http://github.com/npm/npm/issues>
 6 error System Windows_NT 6.2.9200
 7 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-8 error cwd c:\Users\ASUS GAMING\Documents\Développpements\mediatic
+8 error cwd c:\Users\ASUS GAMING\Desktop\TPs formation\mediatic\angular\app
 9 error node -v v0.10.29
 10 error npm -v 1.4.14
-11 error path c:\Users\ASUS GAMING\Documents\Développpements\mediatic\package.json
+11 error path c:\Users\ASUS GAMING\Desktop\TPs formation\mediatic\angular\app\package.json
 12 error code ENOENT
 13 error errno 34
 14 verbose exit [ 34, true ]
